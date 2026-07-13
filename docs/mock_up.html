@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DanDori8 デザイン提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=IBM+Plex+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1A5A9C;
+  --navy-deep:#124272;
+  --teal:#23A9C6;
+  --teal-soft:#E3F4F8;
+  --asphalt:#2E3742;
+  --asphalt-2:#3D4855;
+  --safety:#F08519;
+  --bg:#EFF3F7;
+  --paper:#FFFFFF;
+  --ink:#243040;
+  --ink-2:#5B6B7E;
+  --line:#D8E0E8;
+  --done:#8FA3B5;
+  --radius:10px;
+  --font-display:'Zen Kaku Gothic New',sans-serif;
+  --font-body:'IBM Plex Sans JP',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:14px;line-height:1.7}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== 提案書ラッパー ===== */
+.proposal{max-width:1080px;margin:0 auto;padding:32px 16px 80px}
+.proposal-head{padding:28px 0 20px}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;color:var(--teal);text-transform:uppercase}
+h1{font-family:var(--font-display);font-weight:900;font-size:clamp(26px,5vw,40px);line-height:1.25;color:var(--navy-deep)}
+h1 .accent{color:var(--teal)}
+.lead{color:var(--ink-2);max-width:620px;margin-top:8px}
+.section{margin-top:44px}
+.section>h2{font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--navy-deep);display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.section>h2::before{content:"";width:22px;height:14px;background:repeating-linear-gradient(-45deg,var(--navy) 0 5px,var(--teal) 5px 10px);border-radius:3px}
+.section>p.desc{color:var(--ink-2);margin-bottom:18px;max-width:680px}
+
+/* ===== カラー ===== */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.swatch{border-radius:var(--radius);overflow:hidden;background:var(--paper);border:1px solid var(--line)}
+.swatch .chip{height:64px}
+.swatch .meta{padding:8px 10px}
+.swatch .meta b{display:block;font-size:12.5px}
+.swatch .meta span{font-family:var(--font-mono);font-size:11px;color:var(--ink-2)}
+
+/* ===== タイポ ===== */
+.type-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;display:grid;gap:14px}
+.type-row small{font-family:var(--font-mono);font-size:10.5px;color:var(--teal);letter-spacing:.12em;display:block}
+.t-display{font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--navy-deep)}
+.t-head{font-family:var(--font-display);font-weight:700;font-size:18px}
+.t-body{font-size:14px}
+.t-mono{font-family:var(--font-mono);font-size:13px;color:var(--ink-2)}
+
+/* ===== 署名要素の説明 ===== */
+.sig-card{background:var(--asphalt);color:#fff;border-radius:var(--radius);padding:22px;display:grid;gap:14px}
+.sig-card h3{font-family:var(--font-display);font-weight:700;font-size:16px}
+.sig-card p{color:#C6D0DA;font-size:13px;max-width:640px}
+.sig-demo{display:grid;gap:10px;max-width:560px}
+
+/* ===== ロードバー(署名要素) ===== */
+.roadbar{position:relative;height:34px;border-radius:8px;background:linear-gradient(180deg,var(--asphalt-2),var(--asphalt));display:flex;align-items:center;padding:0 12px;color:#fff;font-family:var(--font-display);font-weight:700;font-size:12.5px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 1px 3px rgba(18,40,64,.25);overflow:hidden;white-space:nowrap}
+.roadbar::after{content:"";position:absolute;left:8px;right:8px;top:50%;height:0;border-top:2px dashed rgba(255,255,255,.55);transform:translateY(-1px);pointer-events:none}
+.roadbar>span{position:relative;z-index:1;background:linear-gradient(180deg,var(--asphalt-2),var(--asphalt));padding:0 8px;border-radius:4px}
+.roadbar.is-done{background:linear-gradient(180deg,#9FB2C2,var(--done))}
+.roadbar.is-done>span{background:var(--done)}
+.roadbar.is-done::after{border-top-color:rgba(255,255,255,.7)}
+.roadbar.is-plan{background:repeating-linear-gradient(-45deg,#DEE7EE 0 8px,#EDF2F6 8px 16px);color:var(--ink-2);box-shadow:inset 0 0 0 1.5px var(--line)}
+.roadbar.is-plan::after{display:none}
+.roadbar.is-plan>span{background:transparent}
+.roadbar.is-active{outline:2px solid var(--teal);outline-offset:1px}
+
+/* ===== アプリモック共通 ===== */
+.mock{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(18,66,114,.10)}
+.app-top{background:var(--navy);color:#fff;padding:0 16px;height:54px;display:flex;align-items:center;gap:12px;position:relative}
+.app-top::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(-45deg,var(--teal) 0 10px,var(--navy-deep) 10px 20px)}
+.logo{display:flex;align-items:center;gap:2px;font-family:var(--font-display);font-weight:900;font-size:19px;letter-spacing:.01em}
+.logo svg{display:block;margin-left:2px}
+.app-top .spacer{flex:1}
+.app-top .user{width:30px;height:30px;border-radius:50%;background:var(--teal);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:13px}
+.app-tabs{display:flex;border-bottom:1px solid var(--line);background:#F7FAFC}
+.app-tabs button{flex:1;padding:12px 4px;border:0;background:none;cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--ink-2);border-bottom:3px solid transparent;transition:color .15s}
+.app-tabs button[aria-selected="true"]{color:var(--navy);border-bottom-color:var(--teal);background:#fff}
+.app-tabs button:focus-visible{outline:2px solid var(--teal);outline-offset:-2px}
+.screen{display:none;padding:16px}
+.screen.show{display:block}
+.screen-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.screen-head h3{font-family:var(--font-display);font-weight:900;font-size:19px;color:var(--navy-deep)}
+.screen-head .range{font-family:var(--font-mono);font-size:12px;color:var(--ink-2)}
+.btn{font-family:var(--font-display);font-weight:700;font-size:12.5px;border:0;border-radius:8px;padding:8px 14px;cursor:pointer}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:#1E96B0}
+.btn:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+
+/* ===== ガント ===== */
+.gantt{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+.gantt table{border-collapse:collapse;width:100%;min-width:760px}
+.gantt th,.gantt td{border-bottom:1px solid var(--line);border-right:1px solid #E9EEF3;padding:0}
+.gantt thead th{background:#F4F8FB;font-family:var(--font-mono);font-weight:500;font-size:10.5px;color:var(--ink-2);padding:7px 4px;text-align:center;white-space:nowrap}
+.gantt thead th.holiday{color:#C25353}
+.gantt .rowlabel{position:sticky;left:0;background:#fff;min-width:132px;max-width:160px;padding:10px 12px;font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--navy-deep);border-right:2px solid var(--line);z-index:2}
+.gantt .rowlabel small{display:block;font-family:var(--font-mono);font-weight:400;font-size:10px;color:var(--ink-2)}
+.gantt .lane{position:relative;height:52px}
+.lane-grid{position:absolute;inset:0;display:grid}
+.lane-grid i{border-right:1px solid #EDF1F5}
+.lane .roadbar{position:absolute;top:9px;height:34px}
+.today-line{position:absolute;top:0;bottom:0;width:0;border-left:2px dashed var(--safety);z-index:3;pointer-events:none}
+.today-line::before{content:"";position:absolute;top:-1px;left:-7px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:9px solid var(--safety)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--ink-2);align-items:center}
+.legend .key{display:inline-flex;align-items:center;gap:6px}
+.dotbar{width:26px;height:12px;border-radius:4px;display:inline-block}
+.dot-prog{background:var(--asphalt)}
+.dot-done{background:var(--done)}
+.dot-plan{background:repeating-linear-gradient(-45deg,#DEE7EE 0 5px,#EDF2F6 5px 10px);border:1px solid var(--line)}
+.dot-today{width:0;height:12px;border-left:2px dashed var(--safety)}
+
+/* ===== タスク ===== */
+.day-nav{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.day-nav .day{font-family:var(--font-display);font-weight:900;font-size:17px;color:var(--navy-deep)}
+.day-nav .chip{font-family:var(--font-mono);font-size:10.5px;background:var(--safety);color:#fff;border-radius:99px;padding:2px 9px}
+.day-nav button{border:1px solid var(--line);background:#fff;border-radius:8px;width:30px;height:30px;cursor:pointer;color:var(--ink-2);font-size:14px}
+.tasks{display:grid;gap:8px}
+.task{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 14px}
+.task input[type=checkbox]{width:19px;height:19px;accent-color:var(--teal);flex-shrink:0}
+.task .body{flex:1;min-width:0}
+.task .body b{font-size:13.5px;font-weight:500;display:block}
+.task .body small{color:var(--ink-2);font-size:11.5px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tag{font-family:var(--font-mono);font-size:10px;border-radius:5px;padding:1px 7px;background:var(--teal-soft);color:#12718A}
+.tag.site{background:#E7EFF8;color:var(--navy)}
+.task.is-done{opacity:.55}
+.task.is-done .body b{text-decoration:line-through}
+.task .due{font-family:var(--font-mono);font-size:11px;color:var(--safety);font-weight:500;flex-shrink:0}
+.add-task{display:flex;gap:8px;margin-top:12px}
+.add-task input{flex:1;border:1.5px dashed var(--line);border-radius:10px;padding:10px 14px;font-family:var(--font-body);font-size:13px;background:#FBFDFE}
+.add-task input:focus{outline:2px solid var(--teal);border-color:transparent}
+
+/* ===== レイアウト方針図 ===== */
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.note{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+.note h4{font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--navy-deep);margin-bottom:6px}
+.note p{font-size:12.5px;color:var(--ink-2)}
+@media(max-width:560px){
+  .proposal{padding:20px 10px 60px}
+  .gantt .rowlabel{min-width:104px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<div class="proposal">
+
+  <header class="proposal-head">
+    <span class="eyebrow">DanDori8 — Design Proposal</span>
+    <h1>段取り八分、<span class="accent">仕事二分。</span></h1>
+    <p class="lead">道路工事の現場をそのままUIの言語にしました。工程バーは「舗装中の道路」、今日の位置は「ロードコーン」。紺×ターコイズのロゴカラーを軸に、屋外・スマホ・手袋越しでも迷わない画面設計です。</p>
+  </header>
+
+  <!-- カラー -->
+  <section class="section">
+    <h2>カラーパレット</h2>
+    <p class="desc">ロゴの2色を主役に、地の色は「アスファルト」と「図面の白」。セーフティオレンジは今日ライン・期限警告だけに絞って、視線が必ずそこへ行くようにします。</p>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#1A5A9C"></div><div class="meta"><b>Navy／主役</b><span>#1A5A9C</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#23A9C6"></div><div class="meta"><b>Teal／アクション</b><span>#23A9C6</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#2E3742"></div><div class="meta"><b>Asphalt／工程バー</b><span>#2E3742</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#F08519"></div><div class="meta"><b>Safety／今日・警告</b><span>#F08519</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#EFF3F7;border-bottom:1px solid #D8E0E8"></div><div class="meta"><b>BG／図面グレー</b><span>#EFF3F7</span></div></div>
+    </div>
+  </section>
+
+  <!-- タイポ -->
+  <section class="section">
+    <h2>タイポグラフィ</h2>
+    <p class="desc">見出しは工事看板のような極太ゴシック(Zen Kaku Gothic New 900)。本文はIBM Plex Sans JP、日付や数値は等幅のIBM Plex Monoで、ガントの目盛りが揃って読めます。</p>
+    <div class="type-card">
+      <div class="type-row"><small>DISPLAY / Zen Kaku Gothic New 900</small><div class="t-display">国道8号 舗装補修工</div></div>
+      <div class="type-row"><small>HEADING / 700</small><div class="t-head">今週の工程</div></div>
+      <div class="type-row"><small>BODY / IBM Plex Sans JP 400</small><div class="t-body">路盤工が完了したら、翌日にアスファルト搬入の手配を確認してください。</div></div>
+      <div class="type-row"><small>DATA / IBM Plex Mono</small><div class="t-mono">2026-07-06 (MON) — 07/18 残り12日</div></div>
+    </div>
+  </section>
+
+  <!-- 署名要素 -->
+  <section class="section">
+    <h2>署名要素：ロードバー</h2>
+    <p class="desc">このアプリの「顔」。ガントの工程バーを道路そのものにします。</p>
+    <div class="sig-card">
+      <h3>工程バー＝道路。センターラインが引かれたら進行中。</h3>
+      <div class="sig-demo">
+        <div class="roadbar" style="width:78%"><span>舗装工（進行中）</span></div>
+        <div class="roadbar is-done" style="width:56%"><span>路盤工（完了）</span></div>
+        <div class="roadbar is-plan" style="width:66%"><span>区画線工（予定）</span></div>
+      </div>
+      <p>予定は「未舗装」の斜線、進行中はアスファルト＋白の破線センターライン、完了は色が引いてグレーに。ひと目で現場の状態が読めます。今日の位置にはロードコーン型のオレンジ破線を立てます。</p>
+    </div>
+  </section>
+
+  <!-- 画面モック -->
+  <section class="section">
+    <h2>画面モック（触れます）</h2>
+    <p class="desc">上のタブで3画面を切り替えられます。ダッシュボード → 現場名タップ → 現場ガント、という遷移イメージ。</p>
+
+    <div class="mock">
+      <div class="app-top">
+        <div class="logo">DanDori<svg width="17" height="24" viewBox="0 0 17 24" aria-label="8"><path fill="#23A9C6" d="M8.5 1c-1 0-1.6.5-1.6 1.4v1.9C4.6 5 3 6.9 3 9c0 .4.3.7.8.7h9.4c.5 0 .8-.3.8-.7 0-2.1-1.6-4-3.9-4.7V2.4C10.1 1.5 9.5 1 8.5 1zM8.5 10.5c-3 0-5.2 1.7-5.2 4 0 1.3.7 2.4 1.9 3.1C3.9 18.4 3 19.7 3 21.2 3 23 5.3 24 8.5 24s5.5-1 5.5-2.8c0-1.5-.9-2.8-2.2-3.6 1.2-.7 1.9-1.8 1.9-3.1 0-2.3-2.2-4-5.2-4zm0 2.4c1.2 0 2 .6 2 1.5s-.8 1.5-2 1.5-2-.6-2-1.5.8-1.5 2-1.5zm0 5.4c1.4 0 2.4.7 2.4 1.7s-1 1.6-2.4 1.6-2.4-.6-2.4-1.6 1-1.7 2.4-1.7z"/></svg></div>
+        <div class="spacer"></div>
+        <div class="user">佐</div>
+      </div>
+
+      <div class="app-tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-t="s1">全体スケジュール</button>
+        <button role="tab" aria-selected="false" data-t="s2">現場ガント</button>
+        <button role="tab" aria-selected="false" data-t="s3">今日のタスク</button>
+      </div>
+
+      <!-- 画面1: ダッシュボード -->
+      <div class="screen show" id="s1" role="tabpanel">
+        <div class="screen-head">
+          <h3>全体スケジュール</h3>
+          <span class="range">2026年7月 ｜ 行＝現場</span>
+          <button class="btn btn-primary">＋ 現場を追加</button>
+        </div>
+        <div class="gantt">
+          <table>
+            <thead><tr>
+              <th class="rowlabel" style="background:#F4F8FB">現場</th>
+              <th>7/1</th><th>7/3</th><th class="holiday">7/5</th><th>7/7</th><th>7/9</th><th class="holiday">7/11</th><th>7/13</th><th>7/15</th><th>7/17</th><th class="holiday">7/19</th><th>7/21</th><th>7/23</th><th class="holiday">7/25</th><th>7/27</th><th>7/29</th><th>7/31</th>
+            </tr></thead>
+            <tbody>
+              <tr><td class="rowlabel">国道8号 舗装補修<small>〜08/21</small></td>
+                <td colspan="16"><div class="lane">
+                  <div class="lane-grid" style="grid-template-columns:repeat(16,1fr)"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="today-line" style="left:19%"></div>
+                  <div class="roadbar is-done" style="left:1%;width:14%"><span>準備工</span></div>
+                  <div class="roadbar is-active" style="left:16%;width:30%"><span>路盤工</span></div>
+                  <div class="roadbar is-plan" style="left:48%;width:34%"><span>舗装工</span></div>
+                </div></td></tr>
+              <tr><td class="rowlabel">市道42号 側溝改良<small>〜07/30</small></td>
+                <td colspan="16"><div class="lane">
+                  <div class="lane-grid" style="grid-template-columns:repeat(16,1fr)"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="today-line" style="left:19%"></div>
+                  <div class="roadbar" style="left:4%;width:26%"><span>掘削工</span></div>
+                  <div class="roadbar is-plan" style="left:32%;width:40%"><span>側溝据付</span></div>
+                </div></td></tr>
+              <tr><td class="rowlabel">県道7号 区画線<small>〜07/15</small></td>
+                <td colspan="16"><div class="lane">
+                  <div class="lane-grid" style="grid-template-columns:repeat(16,1fr)"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="today-line" style="left:19%"></div>
+                  <div class="roadbar is-done" style="left:1%;width:16%"><span>清掃</span></div>
+                  <div class="roadbar" style="left:19%;width:24%"><span>区画線工</span></div>
+                </div></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="legend">
+          <span class="key"><i class="dotbar dot-prog"></i>進行中</span>
+          <span class="key"><i class="dotbar dot-done"></i>完了</span>
+          <span class="key"><i class="dotbar dot-plan"></i>予定</span>
+          <span class="key"><i class="dot-today"></i>&nbsp;今日</span>
+        </div>
+      </div>
+
+      <!-- 画面2: 現場ガント -->
+      <div class="screen" id="s2" role="tabpanel">
+        <div class="screen-head">
+          <h3>国道8号 舗装補修工</h3>
+          <span class="range">2026/06 – 2026/08（3ヶ月）｜ 行＝工程</span>
+          <button class="btn btn-primary">＋ 工程を追加</button>
+        </div>
+        <div class="gantt">
+          <table>
+            <thead><tr>
+              <th class="rowlabel" style="background:#F4F8FB">工程</th>
+              <th>6月上</th><th>6月中</th><th>6月下</th><th>7月上</th><th>7月中</th><th>7月下</th><th>8月上</th><th>8月中</th><th>8月下</th>
+            </tr></thead>
+            <tbody>
+              <tr><td class="rowlabel">準備工</td>
+                <td colspan="9"><div class="lane">
+                  <div class="lane-grid" style="grid-template-columns:repeat(9,1fr)"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="today-line" style="left:39%"></div>
+                  <div class="roadbar is-done" style="left:1%;width:20%"><span>完了 06/01–06/18</span></div>
+                </div></td></tr>
+              <tr><td class="rowlabel">路盤工</td>
+                <td colspan="9"><div class="lane">
+                  <div class="lane-grid" style="grid-template-columns:repeat(9,1fr)"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="today-line" style="left:39%"></div>
+                  <div class="roadbar is-active" style="left:23%;width:28%"><span>06/22–07/18</span></div>
+                </div></td></tr>
+              <tr><td class="rowlabel">舗装工</td>
+                <td colspan="9"><div class="lane">
+                  <div class="lane-grid" style="grid-template-columns:repeat(9,1fr)"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="today-line" style="left:39%"></div>
+                  <div class="roadbar is-plan" style="left:53%;width:26%"><span>07/21–08/12</span></div>
+                </div></td></tr>
+              <tr><td class="rowlabel">区画線工</td>
+                <td colspan="9"><div class="lane">
+                  <div class="lane-grid" style="grid-template-columns:repeat(9,1fr)"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="today-line" style="left:39%"></div>
+                  <div class="roadbar is-plan" style="left:81%;width:12%"><span>08/14–</span></div>
+                </div></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="legend">
+          <span class="key"><i class="dotbar dot-prog"></i>進行中</span>
+          <span class="key"><i class="dotbar dot-done"></i>完了</span>
+          <span class="key"><i class="dotbar dot-plan"></i>予定</span>
+          <span class="key"><i class="dot-today"></i>&nbsp;今日</span>
+        </div>
+      </div>
+
+      <!-- 画面3: タスク -->
+      <div class="screen" id="s3" role="tabpanel">
+        <div class="day-nav">
+          <button aria-label="前日">‹</button>
+          <span class="day">7月6日（月）</span>
+          <span class="chip">今日</span>
+          <button aria-label="翌日">›</button>
+        </div>
+        <div class="tasks">
+          <label class="task"><input type="checkbox">
+            <span class="body"><b>アスファルト合材の搬入時間を確認</b>
+            <small><span class="tag site">国道8号</span><span class="tag">路盤工</span></small></span>
+            <span class="due">10:00</span></label>
+          <label class="task"><input type="checkbox">
+            <span class="body"><b>交通誘導員の配置表を作成</b>
+            <small><span class="tag site">市道42号</span><span class="tag">掘削工</span></small></span></label>
+          <label class="task is-done"><input type="checkbox" checked>
+            <span class="body"><b>朝礼・KY活動</b>
+            <small><span class="tag site">国道8号</span></small></span></label>
+          <label class="task"><input type="checkbox">
+            <span class="body"><b>写真整理（出来形・段階確認）</b>
+            <small><span class="tag site">県道7号</span><span class="tag">区画線工</span></small></span>
+            <span class="due">17:00</span></label>
+        </div>
+        <div class="add-task">
+          <input type="text" placeholder="＋ タスクを追加（Enterで登録）">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- レイアウト方針 -->
+  <section class="section">
+    <h2>レイアウト・実装方針</h2>
+    <div class="notes">
+      <div class="note"><h4>スマホ＝現場、PC＝事務所</h4><p>スマホは下タブ＋タスク優先、PCは左サイドナビ＋ガント全幅。現場列は position:sticky で固定し、横スクロールでも現場名を見失いません。</p></div>
+      <div class="note"><h4>今日ラインが常に主役</h4><p>画面を開いた瞬間、コーン付きオレンジ破線に視線が集まる設計。オレンジはこれと期限警告以外に使いません。</p></div>
+      <div class="note"><h4>アクセシビリティ</h4><p>タブ・チェックボックスはキーボード操作対応、フォーカスリングはteal。状態は色だけでなく質感（斜線／破線／打消し線）でも区別します。</p></div>
+      <div class="note"><h4>Reactでの実装</h4><p>ロードバーはCSSのみで再現可能（border-top:dashed のセンターライン）。Tailwind化する場合もカスタムトークン5色＋2書体で完結します。</p></div>
+    </div>
+  </section>
+
+</div>
+<script>
+const tabs=document.querySelectorAll('.app-tabs button');
+tabs.forEach(b=>b.addEventListener('click',()=>{
+  tabs.forEach(x=>x.setAttribute('aria-selected','false'));
+  b.setAttribute('aria-selected','true');
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));
+  document.getElementById(b.dataset.t).classList.add('show');
+}));
+</script>
+</body>
+</html>
