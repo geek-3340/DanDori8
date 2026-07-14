@@ -21,9 +21,9 @@ export default function Welcome() {
                         {auth.user ? (
                             <Link
                                 href={dashboard()}
-                                className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
+                                className="inline-block rounded-sm border border-white px-5 py-1.5 text-sm leading-normal text-white transition duration-200 ease-in-out hover:border-transparent hover:bg-[#23A9C6] hover:drop-shadow-[0_0_18px] hover:drop-shadow-[#23A9C6]"
                             >
-                                Dashboard
+                                ダッシュボードへ
                             </Link>
                         ) : (
                             <Link

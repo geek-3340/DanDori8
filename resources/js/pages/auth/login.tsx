@@ -21,6 +21,21 @@ export default function Login({ status, canResetPassword }: Props) {
         <>
             <Head title="Log in" />
 
+            {/* タブ */}
+            <div className="mb-6 flex rounded-[10px] bg-[#EFF3F7] p-1">
+                {/* active: 白背景 + shadow */}
+                <button
+                type="button"
+                className="flex-1 rounded-[7px] border-0 bg-white p-[9px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-[#124272] shadow-[0_1px_3px_rgba(18,66,114,.12)]"
+                >
+                ログイン
+                </button>
+                {/* inactive: 透明背景 */}
+                <TextLink href={register()} tabIndex={5} className="flex-1 rounded-[7px] border-0 bg-transparent text-center p-[9px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-[#5B6B7E] shadow-none">
+                    新規登録
+                </TextLink>
+            </div>
+
             <Form
                 {...store.form()}
                 resetOnSuccess={['password']}
@@ -28,9 +43,9 @@ export default function Login({ status, canResetPassword }: Props) {
             >
                 {({ processing, errors }) => (
                     <>
-                        <div className="grid gap-6">
-                            <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                        <div className="grid gap-3.5">
+                            <div className='grid gap-[5px]'>
+                                <Label htmlFor="email">メールアドレス</Label>
                                 <Input
                                     id="email"
                                     type="email"
@@ -39,31 +54,20 @@ export default function Login({ status, canResetPassword }: Props) {
                                     autoFocus
                                     tabIndex={1}
                                     autoComplete="email"
-                                    placeholder="email@example.com"
+                                    placeholder="you@example.com"
                                 />
                                 <InputError message={errors.email} />
                             </div>
 
-                            <div className="grid gap-2">
-                                <div className="flex items-center">
-                                    <Label htmlFor="password">Password</Label>
-                                    {canResetPassword && (
-                                        <TextLink
-                                            href={request()}
-                                            className="ml-auto text-sm"
-                                            tabIndex={5}
-                                        >
-                                            Forgot your password?
-                                        </TextLink>
-                                    )}
-                                </div>
+                            <div className='grid gap-[5px]'>
+                                <Label htmlFor="password">パスワード</Label>
                                 <PasswordInput
                                     id="password"
                                     name="password"
                                     required
                                     tabIndex={2}
                                     autoComplete="current-password"
-                                    placeholder="Password"
+                                    placeholder="••••••••"
                                 />
                                 <InputError message={errors.password} />
                             </div>
@@ -74,27 +78,30 @@ export default function Login({ status, canResetPassword }: Props) {
                                     name="remember"
                                     tabIndex={3}
                                 />
-                                <Label htmlFor="remember">Remember me</Label>
+                                <Label htmlFor="remember"></Label>
                             </div>
 
                             <Button
                                 type="submit"
-                                className="mt-4 w-full"
                                 tabIndex={4}
                                 disabled={processing}
                                 data-test="login-button"
                             >
                                 {processing && <Spinner />}
-                                Log in
+                                ログイン
                             </Button>
+
+                            {canResetPassword && (
+                                <TextLink
+                                    href={request()}
+                                    className="cursor-pointer text-center font-['IBM_Plex_Sans_JP'] text-xs text-[#5B6B7E]"
+                                    tabIndex={5}
+                                >
+                                    パスワードをお忘れですか？
+                                </TextLink>
+                            )}
                         </div>
 
-                        <div className="text-center text-sm text-muted-foreground">
-                            Don't have an account?{' '}
-                            <TextLink href={register()} tabIndex={5}>
-                                Sign up
-                            </TextLink>
-                        </div>
                     </>
                 )}
             </Form>
@@ -107,8 +114,3 @@ export default function Login({ status, canResetPassword }: Props) {
         </>
     );
 }
-
-Login.layout = {
-    title: 'Log in to your account',
-    description: 'Enter your email and password below to log in',
-};

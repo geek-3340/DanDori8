@@ -1,8 +1,12 @@
 import { Link } from '@inertiajs/react';
 import { home } from '@/routes';
-import { ReactNode } from 'react';
+import type { AuthLayoutProps } from '@/types';
 
-export default function AuthSimpleLayout({children}) {
+export default function AuthSimpleLayout({
+    children,
+    title,
+    description,
+    }:AuthLayoutProps) {
     return (
         <div className="flex min-h-screen flex-col font-['IBM_Plex_Sans_JP'] md:flex-row">
             {/* ===== 左：ブランドパネル ===== */}
