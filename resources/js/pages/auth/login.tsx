@@ -19,7 +19,7 @@ type Props = {
 export default function Login({ status, canResetPassword }: Props) {
     return (
         <>
-            <Head title="Log in" />
+            <Head title="ログイン" />
 
             {/* タブ */}
             <div className="mb-6 flex rounded-[10px] bg-[#EFF3F7] p-1">
@@ -72,13 +72,13 @@ export default function Login({ status, canResetPassword }: Props) {
                                 <InputError message={errors.password} />
                             </div>
 
-                            <div className="flex items-center space-x-3">
+                            <div className="flex justify-center items-center space-x-3">
                                 <Checkbox
                                     id="remember"
                                     name="remember"
                                     tabIndex={3}
                                 />
-                                <Label htmlFor="remember"></Label>
+                                <Label htmlFor="remember">ログイン状態を保持する</Label>
                             </div>
 
                             <Button
