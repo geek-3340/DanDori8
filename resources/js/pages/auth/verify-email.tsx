@@ -30,7 +30,7 @@ export default function VerifyEmail({ status }: { status?: string }) {
                             href={logout()}
                             className="mx-auto block text-sm"
                         >
-                            Log out
+                            ログアウト
                         </TextLink>
                     </>
                 )}
