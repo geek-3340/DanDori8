@@ -5,9 +5,9 @@
  */
 export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-[#EFF3F7] font-['IBM_Plex_Sans_JP'] text-[#243040]">
+    <div className="flex min-h-screen flex-col bg-app-bg font-['IBM_Plex_Sans_JP'] text-[#243040]">
       {/* ===== ヘッダー ===== */}
-      <header className="relative flex h-18 flex-shrink-0 items-center gap-3.5 bg-[#1A5A9C] px-[18px] text-white">
+      <header className="relative flex h-18 flex-shrink-0 items-center gap-3.5 bg-app-primary px-[18px] text-white">
         {/* 上端の斜めストライプ */}
         <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(-45deg,#23A9C6_0_10px,#124272_10px_20px)]" />
 
@@ -20,7 +20,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           {/* active: border/opacity フル */}
           <button
             type="button"
-            className="border-0 border-b-[3px] border-[#8FE3F1] bg-transparent px-1 py-[25px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white opacity-100"
+            className="border-0 border-b-[3px] border-app-back bg-transparent px-1 py-[25px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white opacity-100"
           >
             現場一覧
           </button>
@@ -39,7 +39,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <button
           type="button"
           title="ログアウト"
-          className="grid h-8 w-8 place-items-center rounded-full border-0 bg-[#23A9C6] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white"
+          className="grid h-8 w-8 place-items-center rounded-full border-0 bg-app-secondary font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white"
         >
           佐
         </button>
@@ -53,9 +53,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         {/* active: #1A5A9C */}
         <button
           type="button"
-          className="flex flex-1 flex-col items-center gap-1 border-0 bg-transparent px-1 pt-[11px] pb-[13px] font-['Zen_Kaku_Gothic_New'] text-[11px] font-bold text-[#1A5A9C]"
+          className="flex flex-1 flex-col items-center gap-1 border-0 bg-transparent px-1 pt-[11px] pb-[13px] font-['Zen_Kaku_Gothic_New'] text-[11px] font-bold text-app-primary"
         >
-          <span className="h-3 w-5 rounded-[3px] border-[1.5px] border-[#1A5A9C] bg-[repeating-linear-gradient(-45deg,#1A5A9C_0_4px,transparent_4px_8px)]" />
+          <span className="h-3 w-5 rounded-[3px] border-[1.5px] border-app-primary bg-[repeating-linear-gradient(-45deg,#1A5A9C_0_4px,transparent_4px_8px)]" />
           現場
         </button>
         {/* inactive: #8494A5 */}

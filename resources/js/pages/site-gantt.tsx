@@ -18,11 +18,11 @@ export default function SiteGantt() {
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
         <div>
           <h3 className="m-0 font-['Zen_Kaku_Gothic_New'] text-[21px] font-black text-[#124272]">国道8号 舗装補修工</h3>
-          <span className="font-['IBM_Plex_Mono'] text-xs text-[#5B6B7E]">2026/06/01 〜 2026/08/28</span>
+          <span className="font-['IBM_Plex_Mono'] text-xs text-app-link">2026/06/01 〜 2026/08/28</span>
         </div>
         <button
           type="button"
-          className="rounded-[9px] border-0 bg-[#23A9C6] px-4 py-2.5 font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white shadow-[0_4px_12px_rgba(35,169,198,.25)]"
+          className="rounded-[9px] border-0 bg-app-secondary px-4 py-2.5 font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white shadow-[0_4px_12px_rgba(35,169,198,.25)]"
         >
           ＋ 工程を追加
         </button>
@@ -43,13 +43,13 @@ export default function SiteGantt() {
                 6/1
               </div>
               {/* 通常セル（例） */}
-              <div className="w-7 flex-[0_0_28px] border-r border-r-[#EAEFF4] px-0 pt-2 pb-[7px] text-center font-['IBM_Plex_Mono'] text-[9.5px] font-normal text-[#5B6B7E]">
+              <div className="w-7 flex-[0_0_28px] border-r border-r-[#EAEFF4] px-0 pt-2 pb-[7px] text-center font-['IBM_Plex_Mono'] text-[9.5px] font-normal text-app-link">
                 5
               </div>
-              <div className="w-7 flex-[0_0_28px] border-r border-r-[#EAEFF4] px-0 pt-2 pb-[7px] text-center font-['IBM_Plex_Mono'] text-[9.5px] font-normal text-[#5B6B7E]">
+              <div className="w-7 flex-[0_0_28px] border-r border-r-[#EAEFF4] px-0 pt-2 pb-[7px] text-center font-['IBM_Plex_Mono'] text-[9.5px] font-normal text-app-link">
                 9
               </div>
-              <div className="w-7 flex-[0_0_28px] border-r border-r-[#EAEFF4] px-0 pt-2 pb-[7px] text-center font-['IBM_Plex_Mono'] text-[9.5px] font-normal text-[#5B6B7E]">
+              <div className="w-7 flex-[0_0_28px] border-r border-r-[#EAEFF4] px-0 pt-2 pb-[7px] text-center font-['IBM_Plex_Mono'] text-[9.5px] font-normal text-app-link">
                 13
               </div>
               {/* … 残りの日付セルを算出して展開 … */}
@@ -94,10 +94,10 @@ export default function SiteGantt() {
               />
               {/* 進行中バー: 破線 + 名前チップ付き */}
               <div
-                className="absolute top-[9px] flex h-[34px] items-center overflow-hidden whitespace-nowrap rounded-lg bg-[linear-gradient(180deg,#3D4855,#2E3742)] px-2.5 font-['Zen_Kaku_Gothic_New'] text-[11.5px] font-bold text-white shadow-[0_2px_6px_rgba(18,40,64,.25)] outline outline-2 outline-offset-1 outline-[#23A9C6] after:absolute after:inset-x-2 after:top-1/2 after:h-0 after:-translate-y-px after:border-t-2 after:border-dashed after:border-white/55 after:content-['']"
+                className="absolute top-[9px] flex h-[34px] items-center overflow-hidden whitespace-nowrap rounded-lg bg-[linear-gradient(180deg,#3D4855,#2E3742)] px-2.5 font-['Zen_Kaku_Gothic_New'] text-[11.5px] font-bold text-white shadow-[0_2px_6px_rgba(18,40,64,.25)] outline outline-2 outline-offset-1 outline-app-secondary after:absolute after:inset-x-2 after:top-1/2 after:h-0 after:-translate-y-px after:border-t-2 after:border-dashed after:border-white/55 after:content-['']"
                 style={{ left: '20%', width: '30%' }}
               >
-                <span className="relative z-[1] rounded bg-[#2E3742] px-1.5">路盤工</span>
+                <span className="relative z-[1] rounded bg-app-asphalt px-1.5">路盤工</span>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function SiteGantt() {
             <div className="relative h-[52px] w-[560px] bg-[repeating-linear-gradient(90deg,transparent_0,transparent_27px,#EDF1F5_27px,#EDF1F5_28px)]">
               {/* 予定バー: 斜線ハッチ + inset ring */}
               <div
-                className="absolute top-[9px] flex h-[34px] items-center overflow-hidden whitespace-nowrap rounded-lg bg-[repeating-linear-gradient(-45deg,#DEE7EE_0_8px,#EDF2F6_8px_16px)] px-2.5 font-['Zen_Kaku_Gothic_New'] text-[11.5px] font-bold text-[#5B6B7E] shadow-[inset_0_0_0_1.5px_#D8E0E8]"
+                className="absolute top-[9px] flex h-[34px] items-center overflow-hidden whitespace-nowrap rounded-lg bg-[repeating-linear-gradient(-45deg,#DEE7EE_0_8px,#EDF2F6_8px_16px)] px-2.5 font-['Zen_Kaku_Gothic_New'] text-[11.5px] font-bold text-app-link shadow-[inset_0_0_0_1.5px_#D8E0E8]"
                 style={{ left: '55%', width: '25%' }}
               >
                 <span>舗装工</span>
@@ -124,9 +124,9 @@ export default function SiteGantt() {
       </div>
 
       {/* 凡例 */}
-      <div className="mt-3 flex flex-wrap items-center gap-[18px] text-xs text-[#5B6B7E]">
+      <div className="mt-3 flex flex-wrap items-center gap-[18px] text-xs text-app-link">
         <span className="inline-flex items-center gap-1.5">
-          <i className="inline-block h-3 w-[26px] rounded bg-[#2E3742]" />
+          <i className="inline-block h-3 w-[26px] rounded bg-app-asphalt" />
           進行中
         </span>
         <span className="inline-flex items-center gap-1.5">
