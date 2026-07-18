@@ -19,9 +19,9 @@ export default function Register({ passwordRules }: Props) {
             <Head title="新規登録" />
 
             {/* タブ */}
-            <div className="mb-6 flex rounded-[10px] bg-[#EFF3F7] p-1">
+            <div className="mb-6 flex rounded-[10px] bg-app-bg p-1">
                 {/* active: 白背景 + shadow */}
-                <TextLink href={login()} tabIndex={5} className="flex-1 rounded-[7px] border-0 bg-transparent text-center p-[9px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-[#5B6B7E] shadow-none"
+                <TextLink href={login()} tabIndex={5} className="flex-1 rounded-[7px] border-0 bg-transparent text-center p-[9px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-app-link shadow-none"
                 >
                     ログイン
                 </TextLink>

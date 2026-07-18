@@ -21,7 +21,7 @@ export default function SiteForm() {
           <span className="font-['Zen_Kaku_Gothic_New'] text-[12.5px] font-bold text-[#243040]">現場名</span>
           <input
             placeholder="例：国道8号 舗装補修工"
-            className="rounded-[9px] border border-[#D8E0E8] bg-[#FBFDFE] px-[13px] py-[11px] font-['IBM_Plex_Sans_JP'] text-sm focus:border-transparent focus:outline focus:outline-2 focus:outline-[#23A9C6]"
+            className="rounded-[9px] border border-[#D8E0E8] bg-[#FBFDFE] px-[13px] py-[11px] font-['IBM_Plex_Sans_JP'] text-sm focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
           />
         </label>
 
@@ -29,7 +29,7 @@ export default function SiteForm() {
         <div className="grid gap-2.5">
           <span className="font-['Zen_Kaku_Gothic_New'] text-[12.5px] font-bold text-[#243040]">
             工程を登録{' '}
-            <span className="font-['IBM_Plex_Mono'] text-[11px] font-normal text-[#5B6B7E]">
+            <span className="font-['IBM_Plex_Mono'] text-[11px] font-normal text-app-link">
               （工程名＋期間 → 追加）
             </span>
           </span>
@@ -38,7 +38,7 @@ export default function SiteForm() {
             {/* マスタ選択 or 直接入力 */}
             <div className="flex flex-wrap items-center gap-2">
               <select
-                className="min-w-[150px] flex-1 rounded-[9px] border border-[#D8E0E8] bg-white px-3 py-2.5 font-['IBM_Plex_Sans_JP'] text-[13.5px] text-[#243040] focus:border-transparent focus:outline focus:outline-2 focus:outline-[#23A9C6]"
+                className="min-w-[150px] flex-1 rounded-[9px] border border-[#D8E0E8] bg-white px-3 py-2.5 font-['IBM_Plex_Sans_JP'] text-[13.5px] text-[#243040] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
                 defaultValue=""
               >
                 <option value="">マスタから工程を選択</option>
@@ -50,30 +50,30 @@ export default function SiteForm() {
               <span className="font-['IBM_Plex_Mono'] text-[11px] text-[#8494A5]">または</span>
               <input
                 placeholder="直接入力"
-                className="min-w-[130px] flex-1 rounded-[9px] border border-[#D8E0E8] bg-white px-3 py-2.5 font-['IBM_Plex_Sans_JP'] text-[13.5px] focus:border-transparent focus:outline focus:outline-2 focus:outline-[#23A9C6]"
+                className="min-w-[130px] flex-1 rounded-[9px] border border-[#D8E0E8] bg-white px-3 py-2.5 font-['IBM_Plex_Sans_JP'] text-[13.5px] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
               />
             </div>
 
             {/* 開始日 〜 終了日 */}
             <div className="flex flex-wrap items-center gap-2">
               <label className="flex min-w-[130px] flex-1 flex-col gap-[3px]">
-                <span className="font-['IBM_Plex_Mono'] text-[10.5px] text-[#5B6B7E]">開始日</span>
+                <span className="font-['IBM_Plex_Mono'] text-[10.5px] text-app-link">開始日</span>
                 <input
                   type="date"
-                  className="rounded-[9px] border border-[#D8E0E8] bg-white px-[11px] py-[9px] font-['IBM_Plex_Mono'] text-[13px] text-[#243040] focus:border-transparent focus:outline focus:outline-2 focus:outline-[#23A9C6]"
+                  className="rounded-[9px] border border-[#D8E0E8] bg-white px-[11px] py-[9px] font-['IBM_Plex_Mono'] text-[13px] text-[#243040] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
                 />
               </label>
               <span className="self-end pb-2.5 text-[#8494A5]">〜</span>
               <label className="flex min-w-[130px] flex-1 flex-col gap-[3px]">
-                <span className="font-['IBM_Plex_Mono'] text-[10.5px] text-[#5B6B7E]">終了日</span>
+                <span className="font-['IBM_Plex_Mono'] text-[10.5px] text-app-link">終了日</span>
                 <input
                   type="date"
-                  className="rounded-[9px] border border-[#D8E0E8] bg-white px-[11px] py-[9px] font-['IBM_Plex_Mono'] text-[13px] text-[#243040] focus:border-transparent focus:outline focus:outline-2 focus:outline-[#23A9C6]"
+                  className="rounded-[9px] border border-[#D8E0E8] bg-white px-[11px] py-[9px] font-['IBM_Plex_Mono'] text-[13px] text-[#243040] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
                 />
               </label>
               <button
                 type="button"
-                className="self-end rounded-[9px] border-0 bg-[#1A5A9C] px-4 py-2.5 font-['Zen_Kaku_Gothic_New'] text-[12.5px] font-bold text-white"
+                className="self-end rounded-[9px] border-0 bg-app-primary px-4 py-2.5 font-['Zen_Kaku_Gothic_New'] text-[12.5px] font-bold text-white"
               >
                 ＋ 追加
               </button>
@@ -85,7 +85,7 @@ export default function SiteForm() {
             <div className="flex items-center gap-2.5 rounded-[9px] border border-[#D8E0E8] bg-white px-[13px] py-[9px]">
               <span className="h-2.5 w-[18px] flex-shrink-0 rounded-[3px] bg-[linear-gradient(180deg,#3D4855,#2E3742)]" />
               <span className="flex-1 font-['Zen_Kaku_Gothic_New'] text-[13.5px] font-bold text-[#243040]">準備工</span>
-              <span className="font-['IBM_Plex_Mono'] text-[11.5px] text-[#5B6B7E]">2026/06/01 〜 2026/06/18</span>
+              <span className="font-['IBM_Plex_Mono'] text-[11.5px] text-app-link">2026/06/01 〜 2026/06/18</span>
               <span title="削除" className="flex-shrink-0 cursor-pointer text-[15px] text-[#B8C4D0] hover:text-[#F08519]">
                 ×
               </span>
@@ -93,7 +93,7 @@ export default function SiteForm() {
             <div className="flex items-center gap-2.5 rounded-[9px] border border-[#D8E0E8] bg-white px-[13px] py-[9px]">
               <span className="h-2.5 w-[18px] flex-shrink-0 rounded-[3px] bg-[linear-gradient(180deg,#3D4855,#2E3742)]" />
               <span className="flex-1 font-['Zen_Kaku_Gothic_New'] text-[13.5px] font-bold text-[#243040]">路盤工</span>
-              <span className="font-['IBM_Plex_Mono'] text-[11.5px] text-[#5B6B7E]">2026/06/22 〜 2026/07/18</span>
+              <span className="font-['IBM_Plex_Mono'] text-[11.5px] text-app-link">2026/06/22 〜 2026/07/18</span>
               <span title="削除" className="flex-shrink-0 cursor-pointer text-[15px] text-[#B8C4D0] hover:text-[#F08519]">
                 ×
               </span>
@@ -110,13 +110,13 @@ export default function SiteForm() {
         <div className="mt-0.5 flex justify-end gap-2.5">
           <button
             type="button"
-            className="rounded-[9px] border border-[#D8E0E8] bg-white px-5 py-[11px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-[#5B6B7E]"
+            className="rounded-[9px] border border-[#D8E0E8] bg-white px-5 py-[11px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-app-link"
           >
             キャンセル
           </button>
           <button
             type="button"
-            className="rounded-[9px] border-0 bg-[#23A9C6] px-6 py-[11px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white shadow-[0_4px_12px_rgba(35,169,198,.25)]"
+            className="rounded-[9px] border-0 bg-app-secondary px-6 py-[11px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white shadow-[0_4px_12px_rgba(35,169,198,.25)]"
           >
             {/* 現場を作成 / 更新する */}
             現場を作成
