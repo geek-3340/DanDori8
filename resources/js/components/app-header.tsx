@@ -41,22 +41,8 @@ type Props = {
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Dashboard',
+        title: '現場一覧',
         href: dashboard(),
-        icon: LayoutGrid,
-    },
-];
-
-const rightNavItems: NavItem[] = [
-    {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
     },
 ];
 
@@ -70,9 +56,69 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
     const { isCurrentUrl, whenCurrentUrl } = useCurrentUrl();
 
     return (
+        // <>
+        //     {/* ===== ヘッダー ===== */}
+        //     <header className="relative flex h-18 flex-shrink-0 items-center gap-3.5 bg-app-primary px-[18px] text-white">
+        //         {/* 上端の斜めストライプ */}
+        //         <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(-45deg,#23A9C6_0_10px,#124272_10px_20px)]" />
+
+        //         <div className="flex items-center gap-px">
+        //             <img src="/logo.png" alt="" className="w-auto h-18" />
+        //         </div>
+
+        //         {/* PC 用グローバルナビ */}
+        //         <nav className="ml-2 hidden items-center gap-4 md:flex">
+        //             {/* active: border/opacity フル */}
+        //             <button
+        //                 type="button"
+        //                 className="border-0 border-b-[3px] border-app-back bg-transparent px-1 py-[25px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white opacity-100"
+        //             >
+        //                 現場一覧
+        //             </button>
+        //             {/* inactive: border 透明 + opacity 低 */}
+        //             <button
+        //                 type="button"
+        //                 className="border-0 border-b-[3px] border-transparent bg-transparent px-1 py-[25px] font-['Zen_Kaku_Gothic_New'] text-[13px] font-bold text-white opacity-70"
+        //             >
+        //                 工程マスタ
+        //             </button>
+        //         </nav>
+
+        //         <div className="flex-1" />
+
+        //         {/* ログアウト / ユーザー */}
+        //         <DropdownMenu>
+        //             <DropdownMenuTrigger asChild>
+        //                 <Button
+        //                     variant="ghost"
+        //                     className="size-10 rounded-full p-1"
+        //                 >
+        //                     <Avatar className="size-8 overflow-hidden rounded-full">
+        //                         <AvatarImage
+        //                             src={auth.user?.avatar}
+        //                             alt={auth.user?.name}
+        //                         />
+        //                         <AvatarFallback className="rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
+        //                             {getInitials(auth.user?.name ?? '')}
+        //                         </AvatarFallback>
+        //                     </Avatar>
+        //                 </Button>
+        //             </DropdownMenuTrigger>
+        //             <DropdownMenuContent className="w-56" align="end">
+        //                 {auth.user && (
+        //                     <UserMenuContent user={auth.user} />
+        //                 )}
+        //             </DropdownMenuContent>
+        //         </DropdownMenu>
+        //     </header>
+        // </>
         <>
-            <div className="border-b border-sidebar-border/80">
-                <div className="mx-auto flex h-16 items-center px-4 md:max-w-7xl">
+            <div className="relative flex h-18 shrink-0 items-center gap-3.5 bg-app-primary px-[18px] text-white">
+
+                {/* 上端の斜めストライプ */}
+                <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(-45deg,#23A9C6_0_10px,#124272_10px_20px)]" />
+
+                <div className="mx-auto flex h-18 items-center px-4 md:max-w-7xl">
                     {/* Mobile Menu */}
                     <div className="lg:hidden">
                         <Sheet>
@@ -112,22 +158,6 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
                                             ))}
                                         </div>
 
-                                        <div className="flex flex-col space-y-4">
-                                            {rightNavItems.map((item) => (
-                                                <a
-                                                    key={item.title}
-                                                    href={toUrl(item.href)}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex items-center space-x-2 font-medium"
-                                                >
-                                                    {item.icon && (
-                                                        <item.icon className="h-5 w-5" />
-                                                    )}
-                                                    <span>{item.title}</span>
-                                                </a>
-                                            ))}
-                                        </div>
                                     </div>
                                 </div>
                             </SheetContent>
@@ -137,13 +167,14 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
                     <Link
                         href={dashboard()}
                         prefetch
-                        className="flex items-center space-x-2"
                     >
-                        <AppLogo />
+                        <div className="flex items-center gap-px">
+                            <img src="/logo.png" alt="" className="w-auto h-18" />
+                        </div>
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="ml-6 hidden h-full items-center space-x-6 lg:flex">
+                    <div className="h-full ml-2 hidden items-center gap-4 lg:flex">
                         <NavigationMenu className="flex h-full items-stretch">
                             <NavigationMenuList className="flex h-full items-stretch space-x-2">
                                 {mainNavItems.map((item, index) => (
@@ -159,16 +190,13 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
                                                     item.href,
                                                     activeItemStyles,
                                                 ),
-                                                'h-9 cursor-pointer px-3',
+                                                'cursor-pointer font-bold text-white text-[13px] font-sans',
                                             )}
                                         >
-                                            {item.icon && (
-                                                <item.icon className="mr-2 h-4 w-4" />
-                                            )}
                                             {item.title}
                                         </Link>
                                         {isCurrentUrl(item.href) && (
-                                            <div className="absolute bottom-0 left-0 h-0.5 w-full translate-y-px bg-black dark:bg-white"></div>
+                                            <div className="absolute bottom-0 left-0 h-[3px] w-full bg-app-back"></div>
                                         )}
                                     </NavigationMenuItem>
                                 ))}
@@ -176,73 +204,33 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
                         </NavigationMenu>
                     </div>
 
-                    <div className="ml-auto flex items-center space-x-2">
-                        <div className="relative flex items-center space-x-1">
+                    {/* ログアウト / ユーザー */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
                             <Button
                                 variant="ghost"
-                                size="icon"
-                                className="group h-9 w-9 cursor-pointer"
+                                className="size-10 rounded-full p-1"
                             >
-                                <Search className="!size-5 opacity-80 group-hover:opacity-100" />
+                                <Avatar className="size-8 overflow-hidden rounded-full">
+                                    <AvatarImage
+                                        src={auth.user?.avatar}
+                                        alt={auth.user?.name}
+                                    />
+                                    <AvatarFallback className="rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
+                                        {getInitials(auth.user?.name ?? '')}
+                                    </AvatarFallback>
+                                </Avatar>
                             </Button>
-                            <div className="ml-1 hidden gap-1 lg:flex">
-                                {rightNavItems.map((item) => (
-                                    <Tooltip key={item.title}>
-                                        <TooltipTrigger>
-                                            <a
-                                                href={toUrl(item.href)}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="group inline-flex h-9 w-9 items-center justify-center rounded-md bg-transparent p-0 text-sm font-medium text-accent-foreground ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
-                                            >
-                                                <span className="sr-only">
-                                                    {item.title}
-                                                </span>
-                                                {item.icon && (
-                                                    <item.icon className="size-5 opacity-80 group-hover:opacity-100" />
-                                                )}
-                                            </a>
-                                        </TooltipTrigger>
-                                        <TooltipContent>
-                                            <p>{item.title}</p>
-                                        </TooltipContent>
-                                    </Tooltip>
-                                ))}
-                            </div>
-                        </div>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    className="size-10 rounded-full p-1"
-                                >
-                                    <Avatar className="size-8 overflow-hidden rounded-full">
-                                        <AvatarImage
-                                            src={auth.user?.avatar}
-                                            alt={auth.user?.name}
-                                        />
-                                        <AvatarFallback className="rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
-                                            {getInitials(auth.user?.name ?? '')}
-                                        </AvatarFallback>
-                                    </Avatar>
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-56" align="end">
-                                {auth.user && (
-                                    <UserMenuContent user={auth.user} />
-                                )}
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </div>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-56" align="end">
+                            {auth.user && (
+                                <UserMenuContent user={auth.user} />
+                            )}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
                 </div>
             </div>
-            {breadcrumbs.length > 1 && (
-                <div className="flex w-full border-b border-sidebar-border/70">
-                    <div className="mx-auto flex h-12 w-full items-center justify-start px-4 text-neutral-500 md:max-w-7xl">
-                        <Breadcrumbs breadcrumbs={breadcrumbs} />
-                    </div>
-                </div>
-            )}
         </>
     );
 }
