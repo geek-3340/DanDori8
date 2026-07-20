@@ -29,7 +29,7 @@ const mainNavItems: NavItem[] = [
     }
 ];
 
-export function AppHeader() {
+export function AppFooter() {
     const page = usePage();
     const { auth } = page.props;
     const getInitials = useInitials();
