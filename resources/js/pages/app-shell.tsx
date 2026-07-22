@@ -5,10 +5,7 @@
  */
 export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-app-bg font-['IBM_Plex_Sans_JP'] text-[#243040]">
-      {/* ===== メインコンテンツ ===== */}
-      <main className="flex-1 p-4 md:p-7">{children}</main>
-
+    <>
       {/* ===== スマホ用ボトムナビ ===== */}
       <nav className="flex flex-shrink-0 border-t border-[#D8E0E8] bg-white md:hidden">
         {/* active: #1A5A9C */}
@@ -28,6 +25,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           工程マスタ
         </button>
       </nav>
-    </div>
+    </>
+
   );
 }
