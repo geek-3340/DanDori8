@@ -31,9 +31,6 @@ createInertiaApp({
         );
     },
     progress: {
-        color: '#4B5563',
+        color: '#23A9C6',
     },
 });
-
-// This will set light / dark mode on load...
-// initializeTheme();

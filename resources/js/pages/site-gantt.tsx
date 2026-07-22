@@ -12,8 +12,6 @@
 export default function SiteGantt() {
   return (
     <div>
-      <a className="mb-2.5 inline-block cursor-pointer font-['IBM_Plex_Mono'] text-xs">← 現場一覧</a>
-
       {/* 見出し */}
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
         <div>
