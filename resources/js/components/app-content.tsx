@@ -9,7 +9,7 @@ type Props = React.ComponentProps<'main'> & {
 export function AppContent({ children, ...props }: Props) {
     return (
         <main
-            className="mx-auto flex h-full w-full max-w-7xl flex-1 flex-col gap-4 rounded-xl"
+            className="mx-auto mt-18 flex h-full w-full max-w-7xl flex-1 flex-col gap-4 rounded-xl lg:mt-0"
             {...props}
         >
             {children}

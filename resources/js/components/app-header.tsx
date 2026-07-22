@@ -37,7 +37,7 @@ export function AppHeader() {
 
     return (
         <>
-            <div className="relative flex h-18 shrink-0 justify-between items-center gap-3.5 bg-app-primary px-[18px] text-white">
+            <div className="fixed top-0 z-50 flex w-screen h-18 shrink-0 justify-between items-center gap-3.5 bg-app-primary px-[18px] text-white lg:relative">
 
                 {/* 上端の斜めストライプ */}
                 <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(-45deg,#23A9C6_0_10px,#124272_10px_20px)]" />
