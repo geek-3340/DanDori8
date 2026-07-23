@@ -18,6 +18,7 @@
         "laravel/wayfinder": "^0.1.14"
     },
     "require-dev": {
+        "askdkc/breezejp": "^2.6",
         "fakerphp/faker": "^1.24",
         "larastan/larastan": "^3.9",
         "laravel/boost": "^2.2",
