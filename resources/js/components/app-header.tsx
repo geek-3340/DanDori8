@@ -16,7 +16,7 @@ import { UserMenuContent } from '@/components/user-menu-content';
 import { useCurrentUrl } from '@/hooks/use-current-url';
 import { useInitials } from '@/hooks/use-initials';
 import { cn } from '@/lib/utils';
-import { dashboard, processMaster, sitesIndex } from '@/routes';
+import { processMaster, sitesIndex } from '@/routes';
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
@@ -44,14 +44,10 @@ export function AppHeader() {
 
                 <div className="flex h-18 items-center px-2 md:max-w-7xl">
 
-                    <Link
-                        href={dashboard()}
-                        prefetch
-                    >
-                        <div className="flex items-center gap-px">
-                            <img src="/logo.png" alt="" className="w-auto h-18" />
-                        </div>
-                    </Link>
+                    {/* ロゴ */}
+                    <div className="flex items-center gap-px">
+                        <img src="/logo.png" alt="" className="w-auto h-18" />
+                    </div>
 
                     {/* Desktop Navigation */}
                     <div className="h-full ml-2 hidden items-center gap-4 lg:flex">
@@ -104,7 +100,7 @@ export function AppHeader() {
                             </Avatar>
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56" align="end">
+                    <DropdownMenuContent className="w-56 border-app-secondary font-gothic shadow-[0_8px_22px_rgba(18,66,114,.12)]" align="end">
                         {auth.user && (
                             <UserMenuContent user={auth.user} />
                         )}

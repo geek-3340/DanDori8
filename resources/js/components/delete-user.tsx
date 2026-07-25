@@ -23,14 +23,13 @@ export default function DeleteUser() {
         <div className="space-y-6">
             <Heading
                 variant="small"
-                title="Delete account"
-                description="Delete your account and all of its resources"
+                title="アカウント削除"
             />
             <div className="space-y-4 rounded-lg border border-red-100 bg-red-50 p-4 dark:border-red-200/10 dark:bg-red-700/10">
                 <div className="relative space-y-0.5 text-red-600 dark:text-red-100">
-                    <p className="font-medium">Warning</p>
+                    <p className="font-medium">注意</p>
                     <p className="text-sm">
-                        Please proceed with caution, this cannot be undone.
+                        退会された場合、データも削除されます。
                     </p>
                 </div>
 
@@ -39,19 +38,17 @@ export default function DeleteUser() {
                         <Button
                             variant="destructive"
                             data-test="delete-user-button"
+                            className='rounded-md'
                         >
-                            Delete account
+                            アカウント削除
                         </Button>
                     </DialogTrigger>
                     <DialogContent>
                         <DialogTitle>
-                            Are you sure you want to delete your account?
+                            本当に削除しますか？
                         </DialogTitle>
                         <DialogDescription>
-                            Once your account is deleted, all of its resources
-                            and data will also be permanently deleted. Please
-                            enter your password to confirm you would like to
-                            permanently delete your account.
+                            アカウントを削除すると、データも全て削除されます。
                         </DialogDescription>
 
                         <Form
@@ -70,14 +67,14 @@ export default function DeleteUser() {
                                             htmlFor="password"
                                             className="sr-only"
                                         >
-                                            Password
+                                            パスワード
                                         </Label>
 
                                         <PasswordInput
                                             id="password"
                                             name="password"
                                             ref={passwordInput}
-                                            placeholder="Password"
+                                            placeholder="••••••••"
                                             autoComplete="current-password"
                                         />
 
@@ -91,8 +88,9 @@ export default function DeleteUser() {
                                                 onClick={() =>
                                                     resetAndClearErrors()
                                                 }
+                                                className='rounded-md'
                                             >
-                                                Cancel
+                                                戻る
                                             </Button>
                                         </DialogClose>
 
@@ -104,8 +102,9 @@ export default function DeleteUser() {
                                             <button
                                                 type="submit"
                                                 data-test="confirm-delete-user-button"
+                                                className='rounded-md'
                                             >
-                                                Delete account
+                                                削除
                                             </button>
                                         </Button>
                                     </DialogFooter>

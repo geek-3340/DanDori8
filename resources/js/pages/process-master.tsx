@@ -10,7 +10,7 @@ export default function ProcessMaster() {
       <div className="mb-[18px] flex max-w-[520px] gap-2">
         <input
           placeholder="工程名を入力（例：排水構造物工）"
-          className="flex-1 rounded-[10px] border-[1.5px] border-[#D8E0E8] bg-white px-3.5 py-[11px] font-['IBM_Plex_Sans_JP'] text-[13px] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
+          className="flex-1 rounded-[10px] border-[1.5px] border-[#D8E0E8] bg-white px-3.5 py-[11px] font-ibm text-[13px] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
         />
         <button
           type="button"

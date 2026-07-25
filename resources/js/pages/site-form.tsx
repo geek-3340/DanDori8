@@ -20,7 +20,7 @@ export default function SiteForm() {
           <span className="font-['Zen_Kaku_Gothic_New'] text-[12.5px] font-bold text-[#243040]">現場名</span>
           <input
             placeholder="例：国道8号 舗装補修工"
-            className="rounded-[9px] border border-[#D8E0E8] bg-[#FBFDFE] px-[13px] py-[11px] font-['IBM_Plex_Sans_JP'] text-sm focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
+            className="rounded-[9px] border border-[#D8E0E8] bg-[#FBFDFE] px-[13px] py-[11px] font-ibm text-sm focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
           />
         </label>
 
@@ -37,7 +37,7 @@ export default function SiteForm() {
             {/* マスタ選択 or 直接入力 */}
             <div className="flex flex-wrap items-center gap-2">
               <select
-                className="min-w-[150px] flex-1 rounded-[9px] border border-[#D8E0E8] bg-white px-3 py-2.5 font-['IBM_Plex_Sans_JP'] text-[13.5px] text-[#243040] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
+                className="min-w-[150px] flex-1 rounded-[9px] border border-[#D8E0E8] bg-white px-3 py-2.5 font-ibm text-[13.5px] text-[#243040] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
                 defaultValue=""
               >
                 <option value="">マスタから工程を選択</option>
@@ -49,7 +49,7 @@ export default function SiteForm() {
               <span className="font-['IBM_Plex_Mono'] text-[11px] text-[#8494A5]">または</span>
               <input
                 placeholder="直接入力"
-                className="min-w-[130px] flex-1 rounded-[9px] border border-[#D8E0E8] bg-white px-3 py-2.5 font-['IBM_Plex_Sans_JP'] text-[13.5px] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
+                className="min-w-[130px] flex-1 rounded-[9px] border border-[#D8E0E8] bg-white px-3 py-2.5 font-ibm text-[13.5px] focus:border-transparent focus:outline focus:outline-2 focus:outline-app-secondary"
               />
             </div>
 
