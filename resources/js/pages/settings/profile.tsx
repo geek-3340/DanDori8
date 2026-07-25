@@ -7,7 +7,6 @@ import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { edit } from '@/routes/profile';
 import { send } from '@/routes/verification';
 import type { Auth } from '@/types';
 
@@ -26,15 +25,14 @@ export default function Profile({
 
     return (
         <>
-            <Head title="Profile settings" />
+            <Head title="ユーザー情報" />
 
             <h1 className="sr-only">Profile settings</h1>
 
             <div className="space-y-6">
                 <Heading
                     variant="small"
-                    title="Profile"
-                    description="Update your name and email address"
+                    title="ユーザー情報"
                 />
 
                 <Form
@@ -47,7 +45,7 @@ export default function Profile({
                     {({ processing, errors }) => (
                         <>
                             <div className="grid gap-2">
-                                <Label htmlFor="name">Name</Label>
+                                <Label htmlFor="name">ユーザー名</Label>
 
                                 <Input
                                     id="name"
@@ -56,7 +54,7 @@ export default function Profile({
                                     name="name"
                                     required
                                     autoComplete="name"
-                                    placeholder="Full name"
+                                    placeholder="現場太郎"
                                 />
 
                                 <InputError
@@ -66,7 +64,7 @@ export default function Profile({
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="email">メールアドレス</Label>
 
                                 <Input
                                     id="email"
@@ -76,7 +74,7 @@ export default function Profile({
                                     name="email"
                                     required
                                     autoComplete="username"
-                                    placeholder="Email address"
+                                    placeholder="sample@example.com"
                                 />
 
                                 <InputError
@@ -85,7 +83,8 @@ export default function Profile({
                                 />
                             </div>
 
-                            {mustVerifyEmail &&
+                            {/* 以下はメール認証期限切れの際、描画されるため、現段階では不要 */}
+                            {/* {mustVerifyEmail &&
                                 auth.user.email_verified_at === null && (
                                     <div>
                                         <p className="-mt-4 text-sm text-muted-foreground">
@@ -108,14 +107,14 @@ export default function Profile({
                                             </div>
                                         )}
                                     </div>
-                                )}
+                                )} */}
 
                             <div className="flex items-center gap-4">
                                 <Button
                                     disabled={processing}
                                     data-test="update-profile-button"
                                 >
-                                    Save
+                                    保存
                                 </Button>
                             </div>
                         </>
@@ -127,12 +126,3 @@ export default function Profile({
         </>
     );
 }
-
-Profile.layout = {
-    breadcrumbs: [
-        {
-            title: 'Profile settings',
-            href: edit(),
-        },
-    ],
-};

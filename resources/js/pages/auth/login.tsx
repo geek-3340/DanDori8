@@ -92,7 +92,7 @@ export default function Login({ status, canResetPassword }: Props) {
                             {canResetPassword && (
                                 <TextLink
                                     href={request()}
-                                    className="cursor-pointer text-center font-['IBM_Plex_Sans_JP'] text-xs text-app-link"
+                                    className="cursor-pointer text-center font-ibm text-xs text-app-link"
                                     tabIndex={5}
                                 >
                                     パスワードをお忘れですか？

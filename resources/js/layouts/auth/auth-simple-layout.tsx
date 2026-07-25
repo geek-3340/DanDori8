@@ -6,7 +6,7 @@ export default function AuthSimpleLayout({
     children,
 }: AuthLayoutProps) {
     return (
-        <div className="flex min-h-screen flex-col font-['IBM_Plex_Sans_JP'] md:flex-row">
+        <div className="flex min-h-screen flex-col font-ibm md:flex-row">
             {/* ===== 左：ブランドパネル ===== */}
             <div className="relative flex flex-col justify-between overflow-hidden bg-app-primary px-[30px] py-9 text-white md:w-[42%]">
                 <div className="absolute inset-x-0 top-0 h-1.5 bg-[repeating-linear-gradient(-45deg,#23A9C6_0_12px,#124272_12px_24px)]" />

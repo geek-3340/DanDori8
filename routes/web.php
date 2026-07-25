@@ -5,11 +5,10 @@ use Illuminate\Support\Facades\Route;
 Route::inertia('/', 'top')->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::inertia('dashboard', 'dashboard')->name('dashboard');
     Route::inertia('sites-index', 'sites-index')->name('sites-index');
-    Route::inertia('process-master', 'process-master')->name('process-master');
-    Route::inertia('site-gantt', 'site-gantt')->name('site-gantt');
     Route::inertia('site-form', 'site-form')->name('site-form');
+    Route::inertia('site-gantt', 'site-gantt')->name('site-gantt');
+    Route::inertia('process-master', 'process-master')->name('process-master');
 });
 
 require __DIR__ . '/settings.php';

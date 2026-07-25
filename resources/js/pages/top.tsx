@@ -1,5 +1,5 @@
 import { Head, Link, usePage } from '@inertiajs/react';
-import { dashboard, login } from '@/routes';
+import { login, sitesIndex } from '@/routes';
 import { register } from '@/routes';
 
 export default function Welcome() {
@@ -8,7 +8,7 @@ export default function Welcome() {
     return (
         <>
             <Head title="トップ" />
-            <div className="flex min-h-screen flex-col bg-app-asphalt font-['IBM_Plex_Sans_JP']">
+            <div className="flex min-h-screen flex-col bg-app-asphalt font-ibm">
                 {/* ===== ヘッダー ===== */}
                 <header className="relative flex h-18 flex-shrink-0 justify-between items-center gap-3.5 px-[18px] text-white">
                     {/* 上端の斜めストライプ */}
@@ -20,10 +20,10 @@ export default function Welcome() {
                     <nav className="flex items-center justify-end gap-4">
                         {auth.user ? (
                             <Link
-                                href={dashboard()}
+                                href={sitesIndex()}
                                 className="inline-block rounded-sm border border-white px-5 py-1.5 text-sm leading-normal text-white transition duration-200 ease-in-out hover:border-transparent hover:bg-app-secondary hover:drop-shadow-[0_0_18px] hover:drop-shadow-app-secondary"
                             >
-                                ダッシュボードへ
+                                アプリへ
                             </Link>
                         ) : (
                             <Link
@@ -40,7 +40,9 @@ export default function Welcome() {
                         <div className="mt-25 ml-20 flex flex-col gap-8">
                             <p className='text-app-secondary'>道路工事　工程管理アプリ</p>
                             <h2 className='text-6xl text-white font-bold'>段取り<span className='text-app-secondary'>八分</span></h2>
-                            <p className='text-sm text-[#C6D0DA]'>現場ごとの工程を３カ月ガントで管理。複数現場の工程管理を最適化！！</p>
+                            <p className='text-sm text-[#C6D0DA]'>
+                                現場ごとの工程を３カ月ガントで管理。複数現場の工程管理を最適化！！
+                            </p>
                             <Link
                                 href={register()}
                                 className="inline-block w-max rounded-sm bg-app-secondary drop-shadow-[0_0_18px] drop-shadow-app-secondary px-6 py-3 text-sm font-bold leading-normal text-white transition duration-200 ease-in-out hover:drop-shadow-transparent"
