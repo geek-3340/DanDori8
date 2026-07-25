@@ -10,6 +10,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     @fonts
+
+    {{-- GoogleFont ( Zen Kaku Gothic New , IBM Plex Sans JP ) --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -23,7 +25,7 @@
     </x-inertia::head>
 </head>
 
-<body class="font-sans">
+<body class="font-gothic">
     <x-inertia::app />
 </body>
 

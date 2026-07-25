@@ -9,7 +9,6 @@
 export default function SiteForm() {
   return (
     <div className="max-w-[680px]">
-      <a className="mb-2.5 inline-block cursor-pointer font-['IBM_Plex_Mono'] text-xs">← 現場一覧</a>
       <h3 className="m-0 mb-[18px] font-['Zen_Kaku_Gothic_New'] text-[21px] font-black text-[#124272]">
         {/* 新規現場 / 現場を編集 */}
         新規現場
