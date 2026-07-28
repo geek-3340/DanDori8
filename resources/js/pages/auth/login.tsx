@@ -25,11 +25,11 @@ export default function Login({ status, canResetPassword }: Props) {
             <div className="mb-6 flex rounded-[10px] bg-app-bg p-1">
                 <button
                     type="button"
-                    className="flex-1 rounded-[7px] border-0 bg-white p-[9px] font-gothic text-[13px] font-bold text-app-primary shadow-[0_1px_3px_rgba(18,66,114,.12)]"
+                    className="flex-1 rounded-[7px] border-0 bg-white p-2.25 font-gothic text-[13px] font-bold text-app-primary shadow-[0_1px_3px_rgba(18,66,114,.12)]"
                 >
                     ログイン
                 </button>
-                <TextLink href={register()} tabIndex={5} className="flex-1 rounded-[7px] border-0 bg-transparent text-center p-[9px] font-gothic text-[13px] font-bold text-app-link shadow-none">
+                <TextLink href={register()} tabIndex={5} className="flex-1 rounded-[7px] border-0 bg-transparent text-center p-2.25 font-gothic text-[13px] font-bold text-app-link shadow-none">
                     新規登録
                 </TextLink>
             </div>
@@ -42,7 +42,7 @@ export default function Login({ status, canResetPassword }: Props) {
                 {({ processing, errors }) => (
                     <>
                         <div className="grid gap-3.5">
-                            <div className='grid gap-[5px]'>
+                            <div className='grid gap-1.25'>
                                 <Label htmlFor="email">メールアドレス</Label>
                                 <Input
                                     id="email"
@@ -57,7 +57,7 @@ export default function Login({ status, canResetPassword }: Props) {
                                 <InputError message={errors.email} />
                             </div>
 
-                            <div className='grid gap-[5px]'>
+                            <div className='grid gap-1.25'>
                                 <Label htmlFor="password">パスワード</Label>
                                 <PasswordInput
                                     id="password"

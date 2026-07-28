@@ -8,13 +8,13 @@ export default function AuthSimpleLayout({
     return (
         <div className="flex min-h-screen flex-col font-ibm md:flex-row">
             {/* ===== 左：ブランドパネル ===== */}
-            <div className="relative flex flex-col justify-between overflow-hidden bg-app-primary px-[30px] py-9 text-white md:w-[42%]">
+            <div className="relative flex flex-col justify-between overflow-hidden bg-app-primary px-7.5 py-9 text-white md:w-[42%]">
                 <div className="absolute inset-x-0 top-0 h-1.5 bg-[repeating-linear-gradient(-45deg,#23A9C6_0_12px,#124272_12px_24px)]" />
-                <div className="mt-2.5 flex items-center gap-px font-['Zen_Kaku_Gothic_New'] text-xl font-black">
+                <div className="mt-2.5 flex items-center gap-px font-gothic text-xl font-black">
                     <img src="/logo.png" alt="" className="w-auto h-18" />
                 </div>
                 <div>
-                    <h2 className="m-0 mb-2.5 font-['Zen_Kaku_Gothic_New'] text-2xl font-black leading-[1.35]">
+                    <h2 className="m-0 mb-2.5 font-gothic text-2xl font-black leading-[1.35]">
                         現場も、工程も、
                         <br />
                         手のひらで段取り。
@@ -29,8 +29,8 @@ export default function AuthSimpleLayout({
             </div>
 
             {/* ===== 右：フォーム ===== */}
-            <div className="flex flex-1 flex-col justify-start bg-white px-[30px] pt-30">
-                <div className="mx-auto w-full max-w-[340px]">
+            <div className="flex flex-1 flex-col justify-start bg-white px-7.5 pt-30">
+                <div className="mx-auto w-full max-w-85">
                     {children}
                 </div>
             </div>

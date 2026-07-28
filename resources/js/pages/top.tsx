@@ -10,7 +10,7 @@ export default function Welcome() {
             <Head title="トップ" />
             <div className="flex min-h-screen flex-col bg-app-asphalt font-ibm">
                 {/* ===== ヘッダー ===== */}
-                <header className="relative flex h-18 flex-shrink-0 justify-between items-center gap-3.5 px-[18px] text-white">
+                <header className="relative flex h-18 shrink-0 justify-between items-center gap-3.5 px-4.5 text-white">
                     {/* 上端の斜めストライプ */}
                     <div className="absolute inset-x-0 top-18 h-2 bg-[repeating-linear-gradient(-45deg,#23A9C6_0_10px,#124272_10px_20px)]" />
 
