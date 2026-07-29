@@ -7,16 +7,21 @@ export default function Welcome() {
 
     return (
         <>
+            {/* headのtitleを動的に設定 */}
             <Head title="トップ" />
+
             <div className="flex min-h-screen flex-col bg-app-asphalt font-ibm">
-                {/* ===== ヘッダー ===== */}
                 <header className="relative flex h-18 shrink-0 justify-between items-center gap-3.5 px-4.5 text-white">
+
                     {/* 上端の斜めストライプ */}
                     <div className="absolute inset-x-0 top-18 h-2 bg-[repeating-linear-gradient(-45deg,#23A9C6_0_10px,#124272_10px_20px)]" />
 
+                    {/* ロゴ */}
                     <div className="flex items-center gap-px">
                         <img src="/logo.png" alt="" className="w-auto h-18" />
                     </div>
+
+                    {/* ナビメニュー */}
                     <nav className="flex items-center justify-end gap-4">
                         {auth.user ? (
                             <Link
@@ -34,7 +39,9 @@ export default function Welcome() {
                             </Link>
                         )}
                     </nav>
+
                 </header>
+
                 <main>
                     <div className="flex gap-30">
                         <div className="mt-25 ml-20 flex flex-col gap-8">
