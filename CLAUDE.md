@@ -1,13 +1,18 @@
+<!--
+このファイルの <laravel-boost-guidelines> ブロックは Laravel Boost が生成したものを
+日本語訳に差し替えたものです。`php artisan boost:install` を再実行するとブロック全体が
+英語版で上書きされ、翻訳は失われます。再翻訳が必要な場合は Claude に依頼してください。
+-->
 <laravel-boost-guidelines>
 === foundation rules ===
 
-# Laravel Boost Guidelines
+# Laravel Boost ガイドライン
 
-The Laravel Boost guidelines are specifically curated by Laravel maintainers for this application. These guidelines should be followed closely to ensure the best experience when building Laravel applications.
+この Laravel Boost ガイドラインは、このアプリケーション向けに Laravel のメンテナーが厳選したものです。Laravel アプリケーションの開発を最良の体験にするため、これらのガイドラインに忠実に従ってください。
 
-## Foundational Context
+## 前提コンテキスト
 
-This application is a Laravel application and its main Laravel ecosystems package & versions are below. You are an expert with them all. Ensure you abide by these specific packages & versions.
+このアプリケーションは Laravel アプリケーションであり、主要な Laravel エコシステムのパッケージとバージョンは以下のとおりです。あなたはこれらすべてのエキスパートです。ここに記載されたパッケージとバージョンに必ず従ってください。
 
 - php - 8.5
 - inertiajs/inertia-laravel (INERTIA_LARAVEL) - v3
@@ -30,178 +35,178 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - eslint (ESLINT) - v9
 - prettier (PRETTIER) - v3
 
-## Skills Activation
+## スキルの有効化
 
-This project has domain-specific skills available in `**/skills/**`. You MUST activate the relevant skill whenever you work in that domain—don't wait until you're stuck.
+このプロジェクトには `**/skills/**` にドメイン固有のスキルが用意されています。その領域の作業をするときは、必ず該当するスキルを有効化してください。行き詰まってから使うのでは遅すぎます。
 
-## Conventions
+## コーディング規約
 
-- You must follow all existing code conventions used in this application. When creating or editing a file, check sibling files for the correct structure, approach, and naming.
-- Use descriptive names for variables and methods. For example, `isRegisteredForDiscounts`, not `discount()`.
-- Check for existing components to reuse before writing a new one.
+- このアプリケーションで既に使われているコード規約にすべて従ってください。ファイルを作成・編集するときは、同階層のファイルを確認して正しい構造・手法・命名を把握してください。
+- 変数名やメソッド名には説明的な名前を使ってください。例えば `discount()` ではなく `isRegisteredForDiscounts` とします。
+- 新しくコンポーネントを書く前に、再利用できる既存コンポーネントがないか確認してください。
 
-## Verification Scripts
+## 検証スクリプト
 
-- Do not create verification scripts or tinker when tests cover that functionality and prove they work. Unit and feature tests are more important.
+- テストがその機能をカバーし動作を証明している場合は、検証スクリプトを作成したり tinker を使ったりしないでください。ユニットテストと機能テストの方が重要です。
 
-## Application Structure & Architecture
+## アプリケーション構成とアーキテクチャ
 
-- Stick to existing directory structure; don't create new base folders without approval.
-- Do not change the application's dependencies without approval.
+- 既存のディレクトリ構造を守ってください。承認なしに新しいベースフォルダを作らないでください。
+- 承認なしにアプリケーションの依存パッケージを変更しないでください。
 
-## Frontend Bundling
+## フロントエンドのバンドル
 
-- If the user doesn't see a frontend change reflected in the UI, it could mean they need to run `npm run build`, `npm run dev`, or `composer run dev`. Ask them.
+- フロントエンドの変更が UI に反映されないとユーザーが言う場合、`npm run build`、`npm run dev`、`composer run dev` の実行が必要な可能性があります。ユーザーに確認してください。
 
-## Documentation Files
+## ドキュメントファイル
 
-- You must only create documentation files if explicitly requested by the user.
+- ドキュメントファイルは、ユーザーから明示的に依頼された場合のみ作成してください。
 
-## Replies
+## 回答の仕方
 
-- Be concise in your explanations - focus on what's important rather than explaining obvious details.
+- 説明は簡潔にしてください。自明な詳細を説明するのではなく、重要な点に絞ってください。
 
 === boost rules ===
 
 # Laravel Boost
 
-## Tools
+## ツール
 
-- Laravel Boost is an MCP server with tools designed specifically for this application. Prefer Boost tools over manual alternatives like shell commands or file reads.
-- Use `database-query` to run read-only queries against the database instead of writing raw SQL in tinker.
-- Use `database-schema` to inspect table structure before writing migrations or models.
-- Use `get-absolute-url` to resolve the correct scheme, domain, and port for project URLs. Always use this before sharing a URL with the user.
-- Use `browser-logs` to read browser logs, errors, and exceptions. Only recent logs are useful, ignore old entries.
+- Laravel Boost は、このアプリケーション専用に設計されたツールを備えた MCP サーバーです。シェルコマンドやファイル読み込みといった手動の代替手段より、Boost のツールを優先してください。
+- tinker で生の SQL を書く代わりに、`database-query` でデータベースに読み取り専用クエリを実行してください。
+- マイグレーションやモデルを書く前に、`database-schema` でテーブル構造を確認してください。
+- プロジェクトの URL は `get-absolute-url` で正しいスキーム・ドメイン・ポートを解決してください。ユーザーに URL を共有する前は必ず使用してください。
+- ブラウザのログ・エラー・例外は `browser-logs` で読んでください。有用なのは直近のログだけなので、古いエントリは無視してください。
 
-## Searching Documentation (IMPORTANT)
+## ドキュメント検索（重要）
 
-- Always use `search-docs` before making code changes. Do not skip this step. It returns version-specific docs based on installed packages automatically.
-- Pass a `packages` array to scope results when you know which packages are relevant.
-- Use multiple broad, topic-based queries: `['rate limiting', 'routing rate limiting', 'routing']`. Expect the most relevant results first.
-- Do not add package names to queries because package info is already shared. Use `test resource table`, not `filament 4 test resource table`.
+- コードを変更する前に必ず `search-docs` を使ってください。この手順を飛ばさないでください。インストール済みパッケージに基づいたバージョン固有のドキュメントが自動的に返されます。
+- 関連するパッケージが分かっている場合は、`packages` 配列を渡して結果を絞り込んでください。
+- 幅広くトピックベースのクエリを複数使ってください: `['rate limiting', 'routing rate limiting', 'routing']`。最も関連性の高い結果が先頭に来ます。
+- パッケージ情報は既に共有済みなので、クエリにパッケージ名を含めないでください。`filament 4 test resource table` ではなく `test resource table` を使ってください。
 
-### Search Syntax
+### 検索構文
 
-1. Use words for auto-stemmed AND logic: `rate limit` matches both "rate" AND "limit".
-2. Use `"quoted phrases"` for exact position matching: `"infinite scroll"` requires adjacent words in order.
-3. Combine words and phrases for mixed queries: `middleware "rate limit"`.
-4. Use multiple queries for OR logic: `queries=["authentication", "middleware"]`.
+1. 単語はステミングされ AND 条件になります: `rate limit` は "rate" と "limit" の両方にマッチします。
+2. `"quoted phrases"` のように引用符で囲むと語順・位置まで厳密にマッチします: `"infinite scroll"` はこの順で隣接している必要があります。
+3. 単語とフレーズを組み合わせられます: `middleware "rate limit"`。
+4. OR 条件にはクエリを複数渡してください: `queries=["authentication", "middleware"]`。
 
 ## Artisan
 
-- Run Artisan commands directly via the command line (e.g., `php artisan route:list`). Use `php artisan list` to discover available commands and `php artisan [command] --help` to check parameters.
-- Inspect routes with `php artisan route:list`. Filter with: `--method=GET`, `--name=users`, `--path=api`, `--except-vendor`, `--only-vendor`.
-- Read configuration values using dot notation: `php artisan config:show app.name`, `php artisan config:show database.default`. Or read config files directly from the `config/` directory.
+- Artisan コマンドはコマンドラインから直接実行してください（例: `php artisan route:list`）。利用可能なコマンドは `php artisan list` で調べ、パラメータは `php artisan [command] --help` で確認できます。
+- ルートの確認は `php artisan route:list` を使ってください。`--method=GET`、`--name=users`、`--path=api`、`--except-vendor`、`--only-vendor` で絞り込めます。
+- 設定値はドット記法で読めます: `php artisan config:show app.name`、`php artisan config:show database.default`。または `config/` ディレクトリの設定ファイルを直接読んでください。
 
 ## Tinker
 
-- Execute PHP in app context for debugging and testing code. Do not create models without user approval, prefer tests with factories instead. Prefer existing Artisan commands over custom tinker code.
-- Always use single quotes to prevent shell expansion: `php artisan tinker --execute 'Your::code();'`
-  - Double quotes for PHP strings inside: `php artisan tinker --execute 'User::where("active", true)->count();'`
+- アプリケーションのコンテキストで PHP を実行し、デバッグやコードの検証ができます。ユーザーの承認なしにモデルを作成せず、ファクトリを使ったテストを優先してください。独自の tinker コードより既存の Artisan コマンドを優先してください。
+- シェル展開を防ぐため、必ずシングルクォートを使ってください: `php artisan tinker --execute 'Your::code();'`
+  - 内側の PHP 文字列にはダブルクォートを使います: `php artisan tinker --execute 'User::where("active", true)->count();'`
 
 === php rules ===
 
 # PHP
 
-- Always use curly braces for control structures, even for single-line bodies.
-- Use PHP 8 constructor property promotion: `public function __construct(public GitHub $github) { }`. Do not leave empty zero-parameter `__construct()` methods unless the constructor is private.
-- Use explicit return type declarations and type hints for all method parameters: `function isAccessible(User $user, ?string $path = null): bool`
-- Use TitleCase for Enum keys: `FavoritePerson`, `BestLake`, `Monthly`.
-- Prefer PHPDoc blocks over inline comments. Only add inline comments for exceptionally complex logic.
-- Use array shape type definitions in PHPDoc blocks.
+- 制御構造には、本体が1行であっても必ず波括弧を使ってください。
+- PHP 8 のコンストラクタプロパティ昇格を使ってください: `public function __construct(public GitHub $github) { }`。コンストラクタが private の場合を除き、引数ゼロの空の `__construct()` を残さないでください。
+- すべてのメソッド引数に型ヒントを、戻り値には明示的な型宣言を付けてください: `function isAccessible(User $user, ?string $path = null): bool`
+- Enum のキーは TitleCase を使ってください: `FavoritePerson`、`BestLake`、`Monthly`。
+- インラインコメントより PHPDoc ブロックを優先してください。インラインコメントは極めて複雑なロジックにのみ付けてください。
+- PHPDoc ブロックでは配列シェイプの型定義を使ってください。
 
 === deployments rules ===
 
-# Deployment
+# デプロイ
 
-- Laravel can be deployed using [Laravel Cloud](https://cloud.laravel.com/), which is the fastest way to deploy and scale production Laravel applications.
+- Laravel は [Laravel Cloud](https://cloud.laravel.com/) でデプロイできます。本番の Laravel アプリケーションをデプロイ・スケールする最速の方法です。
 
 === tests rules ===
 
-# Test Enforcement
+# テストの必須化
 
-- Every change must be programmatically tested. Write a new test or update an existing test, then run the affected tests to make sure they pass.
-- Run the minimum number of tests needed to ensure code quality and speed. Use `php artisan test --compact` with a specific filename or filter.
+- すべての変更はプログラムによるテストが必要です。新しいテストを書くか既存のテストを更新し、影響範囲のテストを実行して通ることを確認してください。
+- コード品質と速度を両立できる最小限のテストだけを実行してください。`php artisan test --compact` にファイル名やフィルタを指定して使ってください。
 
 === inertia-laravel/core rules ===
 
 # Inertia
 
-- Inertia creates fully client-side rendered SPAs without modern SPA complexity, leveraging existing server-side patterns.
-- Components live in `resources/js/pages` (unless specified in `vite.config.js`). Use `Inertia::render()` for server-side routing instead of Blade views.
-- ALWAYS use `search-docs` tool for version-specific Inertia documentation and updated code examples.
-- IMPORTANT: Activate `inertia-react-development` when working with Inertia client-side patterns.
+- Inertia は、既存のサーバーサイドのパターンを活かしつつ、現代的な SPA の複雑さなしに完全なクライアントサイドレンダリングの SPA を実現します。
+- コンポーネントは `resources/js/pages` に配置します（`vite.config.js` で別途指定されていない限り）。サーバーサイドルーティングでは Blade ビューではなく `Inertia::render()` を使ってください。
+- バージョン固有の Inertia ドキュメントと最新のコード例を得るため、必ず `search-docs` ツールを使ってください。
+- 重要: Inertia のクライアントサイドのパターンを扱うときは `inertia-react-development` を有効化してください。
 
 # Inertia v3
 
-- Use all Inertia features from v1, v2, and v3. Check the documentation before making changes to ensure the correct approach.
-- New v3 features: standalone HTTP requests (`useHttp` hook), optimistic updates with automatic rollback, layout props (`useLayoutProps` hook), instant visits, simplified SSR via `@inertiajs/vite` plugin, custom exception handling for error pages.
-- Carried over from v2: deferred props, infinite scroll, merging props, polling, prefetching, once props, flash data.
-- When using deferred props, add an empty state with a pulsing or animated skeleton.
-- Axios has been removed. Use the built-in XHR client with interceptors, or install Axios separately if needed.
-- `Inertia::lazy()` / `LazyProp` has been removed. Use `Inertia::optional()` instead.
-- Prop types (`Inertia::optional()`, `Inertia::defer()`, `Inertia::merge()`) work inside nested arrays with dot-notation paths.
-- SSR works automatically in Vite dev mode with `@inertiajs/vite` - no separate Node.js server needed during development.
-- Event renames: `invalid` is now `httpException`, `exception` is now `networkError`.
-- `router.cancel()` replaced by `router.cancelAll()`.
-- The `future` configuration namespace has been removed - all v2 future options are now always enabled.
+- v1、v2、v3 のすべての Inertia 機能が使えます。変更前にドキュメントを確認し、正しいアプローチを取ってください。
+- v3 の新機能: 単独の HTTP リクエスト（`useHttp` フック）、自動ロールバック付きの楽観的更新、レイアウト props（`useLayoutProps` フック）、instant visits、`@inertiajs/vite` プラグインによる簡素化された SSR、エラーページ向けのカスタム例外ハンドリング。
+- v2 から引き継がれた機能: deferred props、無限スクロール、merging props、ポーリング、プリフェッチ、once props、フラッシュデータ。
+- deferred props を使うときは、パルスまたはアニメーション付きのスケルトンで空状態を用意してください。
+- Axios は削除されました。インターセプター付きの組み込み XHR クライアントを使うか、必要なら Axios を別途インストールしてください。
+- `Inertia::lazy()` / `LazyProp` は削除されました。代わりに `Inertia::optional()` を使ってください。
+- prop の型（`Inertia::optional()`、`Inertia::defer()`、`Inertia::merge()`）は、ドット記法のパスでネストした配列の中でも機能します。
+- `@inertiajs/vite` を使えば Vite の開発モードで SSR が自動的に動作し、開発中に別途 Node.js サーバーを立てる必要はありません。
+- イベント名の変更: `invalid` は `httpException` に、`exception` は `networkError` になりました。
+- `router.cancel()` は `router.cancelAll()` に置き換えられました。
+- `future` 設定名前空間は削除されました。v2 の future オプションはすべて常に有効です。
 
 === laravel/core rules ===
 
-# Do Things the Laravel Way
+# Laravel の作法に従う
 
-- Use `php artisan make:` commands to create new files (i.e. migrations, controllers, models, etc.). You can list available Artisan commands using `php artisan list` and check their parameters with `php artisan [command] --help`.
-- If you're creating a generic PHP class, use `php artisan make:class`.
-- Pass `--no-interaction` to all Artisan commands to ensure they work without user input. You should also pass the correct `--options` to ensure correct behavior.
+- 新しいファイル（マイグレーション、コントローラー、モデルなど）は `php artisan make:` コマンドで作成してください。利用可能な Artisan コマンドは `php artisan list` で一覧でき、パラメータは `php artisan [command] --help` で確認できます。
+- 汎用の PHP クラスを作る場合は `php artisan make:class` を使ってください。
+- ユーザー入力なしで完了するよう、すべての Artisan コマンドに `--no-interaction` を渡してください。正しい動作のために適切な `--options` も渡してください。
 
-### Model Creation
+### モデルの作成
 
-- When creating new models, create useful factories and seeders for them too. Ask the user if they need any other things, using `php artisan make:model --help` to check the available options.
+- 新しいモデルを作るときは、有用なファクトリとシーダーも一緒に作ってください。`php artisan make:model --help` で利用可能なオプションを確認し、他に必要なものがないかユーザーに尋ねてください。
 
-## APIs & Eloquent Resources
+## API と Eloquent リソース
 
-- For APIs, default to using Eloquent API Resources and API versioning unless existing API routes do not, then you should follow existing application convention.
+- API では原則として Eloquent API リソースと API バージョニングを使ってください。ただし既存の API ルートがそうなっていない場合は、アプリケーション既存の慣習に従ってください。
 
-## URL Generation
+## URL の生成
 
-- When generating links to other pages, prefer named routes and the `route()` function.
+- 他のページへのリンクを生成するときは、名前付きルートと `route()` 関数を優先してください。
 
-## Testing
+## テスト
 
-- When creating models for tests, use the factories for the models. Check if the factory has custom states that can be used before manually setting up the model.
-- Faker: Use methods such as `$this->faker->word()` or `fake()->randomDigit()`. Follow existing conventions whether to use `$this->faker` or `fake()`.
-- When creating tests, make use of `php artisan make:test [options] {name}` to create a feature test, and pass `--unit` to create a unit test. Most tests should be feature tests.
+- テスト用のモデルを作るときは、そのモデルのファクトリを使ってください。手動でセットアップする前に、ファクトリに使えるカスタムステートがないか確認してください。
+- Faker: `$this->faker->word()` や `fake()->randomDigit()` などのメソッドを使ってください。`$this->faker` と `fake()` のどちらを使うかは既存の慣習に従ってください。
+- テストを作成するときは `php artisan make:test [options] {name}` で機能テストを作り、ユニットテストが必要な場合は `--unit` を渡してください。ほとんどのテストは機能テストにすべきです。
 
-## Vite Error
+## Vite のエラー
 
-- If you receive an "Illuminate\Foundation\ViteException: Unable to locate file in Vite manifest" error, you can run `npm run build` or ask the user to run `npm run dev` or `composer run dev`.
+- 「Illuminate\Foundation\ViteException: Unable to locate file in Vite manifest」というエラーが出た場合は、`npm run build` を実行するか、ユーザーに `npm run dev` または `composer run dev` の実行を依頼してください。
 
 === wayfinder/core rules ===
 
 # Laravel Wayfinder
 
-Use Wayfinder to generate TypeScript functions for Laravel routes. Import from `@/actions/` (controllers) or `@/routes/` (named routes).
+Laravel のルートに対する TypeScript 関数の生成には Wayfinder を使ってください。`@/actions/`（コントローラー）または `@/routes/`（名前付きルート）から import します。
 
 === pint/core rules ===
 
-# Laravel Pint Code Formatter
+# Laravel Pint コードフォーマッター
 
-- If you have modified any PHP files, you must run `vendor/bin/pint --dirty --format agent` before finalizing changes to ensure your code matches the project's expected style.
-- Do not run `vendor/bin/pint --test --format agent`, simply run `vendor/bin/pint --format agent` to fix any formatting issues.
+- PHP ファイルを変更した場合は、変更を確定する前に必ず `vendor/bin/pint --dirty --format agent` を実行し、プロジェクトの想定するスタイルに合わせてください。
+- `vendor/bin/pint --test --format agent` は実行しないでください。フォーマットの問題を修正するには `vendor/bin/pint --format agent` をそのまま実行してください。
 
 === pest/core rules ===
 
 ## Pest
 
-- This project uses Pest for testing. Create tests: `php artisan make:test --pest {name}`.
-- The `{name}` argument should not include the test suite directory. Use `php artisan make:test --pest SomeFeatureTest` instead of `php artisan make:test --pest Feature/SomeFeatureTest`.
-- Run tests: `php artisan test --compact` or filter: `php artisan test --compact --filter=testName`.
-- Do NOT delete tests without approval.
+- このプロジェクトではテストに Pest を使っています。テストの作成: `php artisan make:test --pest {name}`。
+- `{name}` 引数にテストスイートのディレクトリを含めないでください。`php artisan make:test --pest Feature/SomeFeatureTest` ではなく `php artisan make:test --pest SomeFeatureTest` を使ってください。
+- テストの実行: `php artisan test --compact`、フィルタする場合は `php artisan test --compact --filter=testName`。
+- 承認なしにテストを削除してはいけません。
 
 === inertia-react/core rules ===
 
 # Inertia + React
 
-- IMPORTANT: Activate `inertia-react-development` when working with Inertia React client-side patterns.
+- 重要: Inertia React のクライアントサイドのパターンを扱うときは `inertia-react-development` を有効化してください。
 
 </laravel-boost-guidelines>

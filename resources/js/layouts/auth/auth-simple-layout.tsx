@@ -28,7 +28,7 @@ export default function AuthSimpleLayout({
                 </Link>
             </div>
 
-            {/* ===== 右：フォーム ===== */}
+            {/* ===== 右：フォームの枠組 ===== */}
             <div className="flex flex-1 flex-col justify-start bg-white px-7.5 pt-30">
                 <div className="mx-auto w-full max-w-85">
                     {children}

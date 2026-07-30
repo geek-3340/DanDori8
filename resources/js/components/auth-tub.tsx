@@ -1,41 +1,35 @@
 import TextLink from '@/components/text-link';
-import { login } from '@/routes';
+import { useCurrentUrl } from '@/hooks/use-current-url';
+import { login, register } from '@/routes';
+import { NavItem } from '@/types';
 
 function AuthTub() {
-    
-
-    // resources/js/components/nav-main.tsxのロジックを参照にする
-
+    const { isCurrentUrl } = useCurrentUrl();
+    const navItems: NavItem[] = [
+        {
+            title: "ログイン",
+            href: login(),
+        }, {
+            title: "新規登録",
+            href: register(),
+        }
+    ];
+    const style = {
+        active: "flex-1 rounded-[7px] border-0 bg-white text-center p-2.25 font-gothic text-[13px] font-bold text-app-primary shadow-[0_1px_3px_rgba(18,66,114,.12)]",
+        inactive: "flex-1 rounded-[7px] border-0 bg-transparent text-center p-2.25 font-gothic text-[13px] font-bold text-app-link shadow-none",
+    };
 
     return (
         <>
-            {/* register */}
             <div className="mb-6 flex rounded-[10px] bg-app-bg p-1">
-                {/* active: 白背景 + shadow */}
-                <TextLink href={login()} tabIndex={5} className="flex-1 rounded-[7px] border-0 bg-transparent text-center p-2.25 font-gothic text-[13px] font-bold text-app-link shadow-none"
-                >
-                    ログイン
-                </TextLink>
-                <button
-                    type="button"
-                    className="flex-1 rounded-[7px] border-0 bg-white p-2.25 font-gothic text-[13px] font-bold text-app-primary shadow-[0_1px_3px_rgba(18,66,114,.12)]">
-                    新規登録
-                </button>
+                {navItems.map((item) => (
+                    <TextLink href={item.href} className={isCurrentUrl(item.href) ? style.active : style.inactive}>
+                        {item.title}
+                    </TextLink>
+                ))
+                }
             </div>
-
-            {/* login */}
-            <div className="mb-6 flex rounded-[10px] bg-app-bg p-1">
-                            <button
-                                type="button"
-                                className="flex-1 rounded-[7px] border-0 bg-white p-2.25 font-gothic text-[13px] font-bold text-app-primary shadow-[0_1px_3px_rgba(18,66,114,.12)]"
-                            >
-                                ログイン
-                            </button>
-                            <TextLink href={register()} tabIndex={5} className="flex-1 rounded-[7px] border-0 bg-transparent text-center p-2.25 font-gothic text-[13px] font-bold text-app-link shadow-none">
-                                新規登録
-                            </TextLink>
-                        </div>
         </>
     );
 }
-export default AuthTub();
+export { AuthTub };

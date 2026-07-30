@@ -71,6 +71,8 @@ export function AppHeader() {
                                         >
                                             {item.title}
                                         </Link>
+
+                                        {/* activeボタンに下線 */}
                                         {isCurrentUrl(item.href) && (
                                             <div className="absolute bottom-0 left-0 h-[3px] w-full bg-app-back"></div>
                                         )}

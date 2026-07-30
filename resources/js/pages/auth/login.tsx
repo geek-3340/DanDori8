@@ -7,9 +7,9 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
-import { register } from '@/routes';
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
+import { AuthTub } from '@/components/auth-tub';
 
 type Props = {
     status?: string;
@@ -21,19 +21,9 @@ export default function Login({ status, canResetPassword }: Props) {
         <>
             <Head title="ログイン" />
 
-            {/* タブ */}
-            <div className="mb-6 flex rounded-[10px] bg-app-bg p-1">
-                <button
-                    type="button"
-                    className="flex-1 rounded-[7px] border-0 bg-white p-2.25 font-gothic text-[13px] font-bold text-app-primary shadow-[0_1px_3px_rgba(18,66,114,.12)]"
-                >
-                    ログイン
-                </button>
-                <TextLink href={register()} tabIndex={5} className="flex-1 rounded-[7px] border-0 bg-transparent text-center p-2.25 font-gothic text-[13px] font-bold text-app-link shadow-none">
-                    新規登録
-                </TextLink>
-            </div>
-
+            {/* 新規登録・ログインタブ（自作component） */}
+            <AuthTub />
+            
             <Form
                 {...store.form()}
                 resetOnSuccess={['password']}

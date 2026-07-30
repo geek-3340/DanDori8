@@ -1,3 +1,4 @@
+
 import { createInertiaApp } from '@inertiajs/react';
 import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -12,7 +13,7 @@ createInertiaApp({
     // headのtitleを動的に生成
     title: (title) => (title ? `${title} - ${appName}` : appName),
 
-    // Routeに応じてlayoutを可変
+    // Routeに応じたlayout設定
     layout: (name) => {
         switch (true) {
             case name === 'top':
@@ -29,11 +30,12 @@ createInertiaApp({
     // TSの厳格モード
     strictMode: true,
 
-    // 前ページにおいてコンテンツを内包するコンポーネントを設定
+    // 全ページにおいてコンテンツを内包するコンポーネントを設定
     withApp(app) {
         return (
             <TooltipProvider delayDuration={0}>
                 {app}
+                {/* ↙ 「保存しました」みたいな画面にフワッと描画されて消えるやつ＝トースター */}
                 <Toaster />
             </TooltipProvider>
         );
