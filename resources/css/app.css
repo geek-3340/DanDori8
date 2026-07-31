@@ -32,6 +32,7 @@
     --color-app-accent: #f08519;
     --color-app-link: #5b6b7e;
     --color-app-back: #8fe3f1;
+    --color-app-text: #124272;
 
     /* default variables */
     --color-background: var(--background);
